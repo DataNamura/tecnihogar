@@ -1,14 +1,14 @@
 ---
 import "@fontsource-variable/inter";
 import Header from "~/components/header.astro";
+import Navbar from "~/components/navbar.astro";
 import Splash from "~/components/splash.astro";
 import AboutUs from "~/components/about-us.astro";
 import Services from "~/components/services.astro";
-import Guarantee from "~/components/guarantee.astro";
 import Features from "~/components/features.astro";
 import Brands from "~/components/brands.astro";
-import Testimonials from "~/components/testimonials.astro";
 import FAQ from "~/components/faq.astro";
+import ServiceAreas from "~/components/service-areas.astro";
 import FindUs from "~/components/findus.astro";
 import Footer from "~/components/footer.astro";
 import WhatsAppButton from "~/components/whatsapp-button.astro";  // Importa el botón de WhatsApp
@@ -98,15 +98,15 @@ const description =
   <body
     class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
   >
+    <Navbar />
     <Header />
     <Splash />
     <AboutUs />
     <Services />
-    <Guarantee />
     <Features />
     <Brands />
-    <Testimonials />
     <FAQ />
+    <ServiceAreas />
     <FindUs /> <!-- Sección Find Us -->
     <Footer />
     <WhatsAppButton /> <!-- Botón de WhatsApp -->

@@ -5,48 +5,49 @@ import type { FeatureItem } from "~/types";
 
 const features: Array<FeatureItem> = [
   {
-    title: "Servicio de Emergencia",
+    title: "Reparación Rápida en Tenerife",
     description:
-      "Disponibles 24/7 para atender cualquier emergencia con tus electrodomésticos.",
+      "Respuesta inmediata en toda la isla. Solucionamos tus averías en el mismo día.",
     icon: "mdi:clock-fast",
   },
   {
     title: "Técnicos Certificados",
     description:
-      "Nuestro equipo está certificado y cuenta con años de experiencia en todas las marcas.",
+      "Equipo profesional certificado con experiencia en todas las marcas de electrodomésticos y servicio técnico oficial.",
     icon: "mdi:certificate",
   },
   {
-    title: "Garantía de Servicio",
+    title: "Garantía Local",
     description:
-      "Todos nuestros trabajos cuentan con garantía por escrito para tu tranquilidad.",
+      "Servicio con garantía por escrito en toda la isla. Respaldo total en nuestras reparaciones.",
     icon: "mdi:shield-check",
   },
   {
-    title: "Precios Transparentes",
+    title: "Presupuesto Sin Compromiso",
     description:
-      "Sin sorpresas ni costos ocultos. Te damos un presupuesto claro antes de comenzar.",
+      "Precios competitivos sin sorpresas. Presupuesto detallado antes de cada reparación.",
     icon: "mdi:cash",
   },
   {
-    title: "Repuestos Originales",
+    title: "Repuestos Originales Garantizados",
     description:
-      "Utilizamos solo repuestos originales para asegurar la durabilidad de la reparación.",
+      "Stock permanente de repuestos originales para reparaciones duraderas de electrodomésticos.",
     icon: "mdi:tools",
   },
   {
-    title: "Atención Personalizada",
+    title: "Servicio Personalizado",
     description:
-      "Te mantenemos informado durante todo el proceso de reparación.",
+      "Atención cercana y profesional. Tu técnico de confianza para todas tus reparaciones.",
     icon: "mdi:account-voice",
   },
 ];
 ---
 
-<ContentSection title="Ventajas" id="features">
+<ContentSection title="¿Por qué elegir nuestro Servicio Técnico?" id="features">
   <Fragment slot="lead">
-    Confía en los <span class="text-primary">expertos</span>. Más de
-    <span class="text-primary">15 años</span> de experiencia nos respaldan.
+    Los <span class="text-primary">expertos en reparación</span> de electrodomésticos en <span class="text-primary">Tenerife</span>. 
+    Servicio en <span class="text-primary">San Isidro</span>, <span class="text-primary">Santa Cruz</span> y <span class="text-primary">La Laguna</span>. 
+    Más de <span class="text-primary">15 años</span> solucionando averías.
   </Fragment>
   <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     {
@@ -55,7 +56,7 @@ const features: Array<FeatureItem> = [
           <div class="size-16 rounded-full border-2 border-current p-3">
             <Icon name={icon} class="size-full" />
           </div>
-          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center font-extrabold text-xl text-primary">{title}</p>
           <p class="text-center text-offset text-sm">{description}</p>
         </li>
       ))

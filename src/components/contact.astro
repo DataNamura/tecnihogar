@@ -1,0 +1,192 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+
+const contactMethods = [
+  {
+    name: "Teléfono",
+    value: "603 40 30 94",
+    icon: "mdi:phone",
+    href: "tel:603403094",
+    description: "Atención inmediata de Lunes a Domingo"
+  },
+  {
+    name: "WhatsApp",
+    value: "603 40 30 94",
+    icon: "mdi:whatsapp",
+    href: "https://wa.me/34603403094",
+    description: "Respuesta rápida por mensaje"
+  },
+  {
+    name: "Email",
+    value: "info@tecnihogar.com",
+    icon: "mdi:email",
+    href: "mailto:info@tecnihogar.com",
+    description: "Para consultas y presupuestos"
+  },
+  {
+    name: "Horario",
+    value: "Lun-Dom: 08:00 - 20:00",
+    icon: "mdi:clock",
+    href: "#",
+    description: "Servicio de urgencias disponible"
+  }
+];
+---
+
+<ContentSection title="Contacto" id="contact">
+  <Fragment slot="lead">
+    Estamos aquí para ayudarte con cualquier <span class="text-primary">reparación</span>
+  </Fragment>
+
+  <div class="mx-auto max-w-6xl px-4 py-8">
+    <div class="grid gap-8 md:grid-cols-2">
+      <!-- Información de Contacto -->
+      <div class="space-y-8">
+        <div class="grid gap-6 sm:grid-cols-2">
+          {contactMethods.map((method) => (
+            <a
+              href={method.href}
+              class="group flex flex-col gap-4 rounded-lg border border-default bg-offset p-6 transition-all duration-300 hover:border-primary hover:bg-primary/10"
+            >
+              <div class="flex items-center gap-4">
+                <div class="rounded-lg bg-primary/10 p-3 group-hover:bg-primary/20">
+                  <Icon name={method.icon} class="size-6 text-primary" />
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-default">{method.name}</h3>
+                  <p class="text-primary font-medium">{method.value}</p>
+                </div>
+              </div>
+              <p class="text-offset text-sm">{method.description}</p>
+            </a>
+          ))}
+        </div>
+
+        <!-- Información Adicional -->
+        <div class="rounded-lg border border-default bg-offset p-6">
+          <h3 class="mb-4 text-lg font-semibold text-default">Servicio Técnico en Tenerife</h3>
+          <p class="text-offset mb-4">
+            Ofrecemos servicio técnico especializado en la reparación de electrodomésticos en toda la isla de Tenerife. 
+            Nuestro equipo de técnicos cualificados está disponible para atender cualquier avería.
+          </p>
+          <div class="flex flex-col gap-2 text-offset">
+            <p class="flex items-center gap-2">
+              <Icon name="mdi:check-circle" class="size-5 text-primary" />
+              Respuesta rápida en el mismo día
+            </p>
+            <p class="flex items-center gap-2">
+              <Icon name="mdi:check-circle" class="size-5 text-primary" />
+              Presupuesto sin compromiso
+            </p>
+            <p class="flex items-center gap-2">
+              <Icon name="mdi:check-circle" class="size-5 text-primary" />
+              Garantía en todas las reparaciones
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario de Contacto -->
+      <div class="rounded-lg border border-default bg-offset p-6">
+        <h3 class="mb-6 text-lg font-semibold text-default">Solicitar Presupuesto</h3>
+        <form class="space-y-4" id="contact-form">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="name" class="mb-2 block text-sm font-medium text-default">Nombre</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="w-full rounded-lg border border-default bg-default px-4 py-2.5 text-default"
+                required
+              />
+            </div>
+            <div>
+              <label for="phone" class="mb-2 block text-sm font-medium text-default">Teléfono</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="w-full rounded-lg border border-default bg-default px-4 py-2.5 text-default"
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <label for="email" class="mb-2 block text-sm font-medium text-default">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="w-full rounded-lg border border-default bg-default px-4 py-2.5 text-default"
+              required
+            />
+          </div>
+          <div>
+            <label for="appliance" class="mb-2 block text-sm font-medium text-default">Electrodoméstico</label>
+            <select
+              id="appliance"
+              name="appliance"
+              class="w-full rounded-lg border border-default bg-default px-4 py-2.5 text-default"
+              required
+            >
+              <option value="">Selecciona un electrodoméstico</option>
+              <option value="lavadora">Lavadora</option>
+              <option value="nevera">Nevera</option>
+              <option value="lavavajillas">Lavavajillas</option>
+              <option value="horno">Horno</option>
+              <option value="vitroceramica">Vitrocerámica</option>
+              <option value="secadora">Secadora</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="mb-2 block text-sm font-medium text-default">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              class="w-full rounded-lg border border-default bg-default px-4 py-2.5 text-default"
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full rounded-lg bg-primary px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+          >
+            Enviar Solicitud
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</ContentSection>
+
+<script>
+  const form = document.getElementById('contact-form');
+  
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Aquí puedes agregar la lógica para enviar el formulario
+    // Por ejemplo, usando fetch para enviar a un endpoint
+    
+    alert('Gracias por contactar con nosotros. Nos pondremos en contacto contigo lo antes posible.');
+    form.reset();
+  });
+</script>
+
+<style>
+  input:focus, 
+  select:focus, 
+  textarea:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-text-offset);
+  }
+</style>

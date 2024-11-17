@@ -1,145 +1,115 @@
 ---
 import "@fontsource-variable/inter";
 import Header from "~/components/header.astro";
+import Navbar from "~/components/navbar.astro";
 import Footer from "~/components/footer.astro";
 import WhatsAppButton from "~/components/whatsapp-button.astro";
 import "~/styles/index.css";
 
+const { generator, site } = Astro;
 const description = "Términos y Condiciones de TecniHogar - Servicio Técnico de Electrodomésticos en Tenerife";
 ---
 
+<!doctype html>
 <html lang="es" class="h-full motion-safe:scroll-smooth" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={generator} />
     <meta name="description" content={description} />
+
     <title>Términos y Condiciones | TecniHogar - Servicio Técnico de Electrodomésticos en Tenerife</title>
   </head>
   <body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
     <Header />
+    <Navbar />
     
-    <main class="flex flex-col items-center bg-default">
-      <div class="py-20 md:py-32 w-full">
-        <div class="container mx-auto px-4 md:px-8 max-w-4xl">
-          <h1 class="text-center font-extrabold text-4xl md:text-5xl tracking-tight pb-16 gradient-text">Términos y Condiciones</h1>
+    <div class="space-y-24 px-8 py-32">
+      <div class="mx-auto max-w-4xl space-y-24">
+        <div class="flex flex-col items-center gap-8">
+          <h1 class="text-center font-extrabold text-4xl md:text-5xl tracking-tight gradient-text">
+            Términos y Condiciones
+          </h1>
+        </div>
 
-          <div class="space-y-8 text-justify">
-            <section>
-              <h2 class="text-2xl font-bold mb-4 gradient-text">1. Introducción</h2>
-              <p class="mb-4">Estos términos y condiciones regulan el uso del sitio web tecnihogar.es y los servicios de reparación y mantenimiento de electrodomésticos proporcionados por TecniHogar en Tenerife. Al acceder y utilizar nuestro sitio web o contratar nuestros servicios, usted acepta estos términos y condiciones en su totalidad.</p>
-            </section>
+        <div class="space-y-8 text-justify">
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">1. Introducción</h2>
+            <p class="mb-4">Estos términos y condiciones regulan el uso del sitio web tecnihogar.es y los servicios de reparación y mantenimiento de electrodomésticos proporcionados por TecniHogar en Tenerife. Al acceder y utilizar nuestro sitio web o contratar nuestros servicios, usted acepta estos términos y condiciones en su totalidad.</p>
+          </section>
 
-            <section>
-              <h2 class="text-2xl font-bold mb-4 gradient-text">2. Servicios Ofrecidos</h2>
-              <p class="mb-4">TecniHogar ofrece servicios profesionales de reparación y mantenimiento de electrodomésticos, incluyendo pero no limitado a:</p>
-              <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li>Reparación de lavadoras, secadoras y lavavajillas</li>
-                <li>Servicio técnico de neveras y congeladores</li>
-                <li>Reparación de hornos y microondas</li>
-                <li>Mantenimiento de aires acondicionados</li>
-                <li>Reparación de campanas extractoras</li>
-                <li>Diagnóstico y presupuesto</li>
-              </ul>
-            </section>
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">2. Servicios</h2>
+            <p class="mb-4">TecniHogar ofrece servicios profesionales de reparación y mantenimiento de electrodomésticos en toda la isla de Tenerife. Nuestros servicios incluyen, pero no se limitan a:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Diagnóstico y reparación de averías</li>
+              <li>Mantenimiento preventivo</li>
+              <li>Instalación y puesta en marcha</li>
+              <li>Asesoramiento técnico</li>
+            </ul>
+          </section>
 
-            <section>
-              <h2 class="text-2xl font-bold mb-4 gradient-text">3. Proceso de Servicio</h2>
-              <div class="space-y-4">
-                <div>
-                  <h3 class="text-xl font-semibold mb-2">3.1 Solicitud de Servicio</h3>
-                  <p>Los clientes pueden solicitar nuestros servicios a través de:</p>
-                  <ul class="list-disc pl-6 mb-4 space-y-2">
-                    <li>Teléfono: 603 40 30 94</li>
-                    <li>WhatsApp</li>
-                    <li>Formulario web</li>
-                  </ul>
-                </div>
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">3. Presupuestos y Tarifas</h2>
+            <p class="mb-4">Los presupuestos se proporcionarán sin compromiso tras la evaluación inicial del electrodoméstico. Las tarifas incluyen:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Desplazamiento dentro de las zonas de servicio</li>
+              <li>Diagnóstico de la avería</li>
+              <li>Mano de obra por tiempo de reparación</li>
+              <li>Coste de piezas de repuesto (si son necesarias)</li>
+            </ul>
+          </section>
 
-                <div>
-                  <h3 class="text-xl font-semibold mb-2">3.2 Diagnóstico y Presupuesto</h3>
-                  <p>Realizamos un diagnóstico inicial del problema y proporcionamos un presupuesto antes de proceder con la reparación.</p>
-                </div>
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">4. Garantías</h2>
+            <p class="mb-4">Todas nuestras reparaciones incluyen garantía por escrito que cubre:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>3 meses mínimo en piezas y mano de obra</li>
+              <li>Servicio post-reparación</li>
+              <li>Atención prioritaria en caso de incidencias</li>
+            </ul>
+          </section>
 
-                <div>
-                  <h3 class="text-xl font-semibold mb-2">3.3 Garantía</h3>
-                  <p>Todos nuestros servicios incluyen garantía en la reparación y en las piezas utilizadas.</p>
-                </div>
-              </div>
-            </section>
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">5. Obligaciones del Cliente</h2>
+            <p class="mb-4">El cliente se compromete a:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Proporcionar información precisa sobre la avería</li>
+              <li>Permitir el acceso al electrodoméstico</li>
+              <li>Aceptar el presupuesto antes de la reparación</li>
+              <li>Realizar el pago según lo acordado</li>
+            </ul>
+          </section>
 
-            <section>
-              <h2 class="text-2xl font-bold mb-4 gradient-text">4. Precios y Pagos</h2>
-              <div class="space-y-4">
-                <p>Los precios de nuestros servicios incluyen:</p>
-                <ul class="list-disc pl-6 mb-4 space-y-2">
-                  <li>Desplazamiento dentro de nuestra área de servicio</li>
-                  <li>Mano de obra</li>
-                  <li>Piezas de repuesto (cuando sean necesarias)</li>
-                  <li>IVA aplicable</li>
-                </ul>
-                <p>Aceptamos las siguientes formas de pago:</p>
-                <ul class="list-disc pl-6 mb-4 space-y-2">
-                  <li>Efectivo</li>
-                  <li>Tarjeta de crédito/débito</li>
-                  <li>Transferencia bancaria</li>
-                </ul>
-              </div>
-            </section>
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">6. Cancelaciones</h2>
+            <p class="mb-4">Las citas pueden cancelarse o reprogramarse con un mínimo de 24 horas de antelación sin cargo adicional. Las cancelaciones con menos tiempo pueden estar sujetas a gastos de gestión.</p>
+          </section>
 
-            <section>
-              <h2 class="text-2xl font-bold mb-4 gradient-text">5. Área de Servicio</h2>
-              <p class="mb-4">Prestamos servicio en toda la isla de Tenerife, con especial atención a:</p>
-              <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li>Santa Cruz de Tenerife</li>
-                <li>La Laguna</li>
-                <li>San Isidro</li>
-                <li>Granadilla</li>
-                <li>Otros municipios de la isla (consultar disponibilidad)</li>
-              </ul>
-            </section>
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">7. Formas de Pago</h2>
+            <p class="mb-4">Aceptamos las siguientes formas de pago:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Efectivo</li>
+              <li>Tarjetas de crédito/débito</li>
+              <li>Transferencia bancaria</li>
+              <li>Bizum</li>
+            </ul>
+          </section>
 
-            <section>
-              <h2 class="text-2xl font-bold mb-4 gradient-text">6. Cancelaciones y Modificaciones</h2>
-              <p class="mb-4">Si necesita cancelar o modificar una cita programada, le agradecemos que nos lo comunique con al menos 24 horas de antelación. Esto nos permite reorganizar nuestra agenda y atender a otros clientes que puedan necesitar el servicio.</p>
-            </section>
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">8. Protección de Datos</h2>
+            <p class="mb-4">La información personal proporcionada por los clientes será tratada de acuerdo con nuestra política de privacidad y la normativa vigente de protección de datos (RGPD).</p>
+          </section>
 
-            <section>
-              <h2 class="text-2xl font-bold mb-4 gradient-text">7. Responsabilidades</h2>
-              <div class="space-y-4">
-                <p>TecniHogar se compromete a:</p>
-                <ul class="list-disc pl-6 mb-4 space-y-2">
-                  <li>Proporcionar servicios profesionales de alta calidad</li>
-                  <li>Utilizar piezas y materiales originales o de calidad equivalente</li>
-                  <li>Respetar los horarios acordados</li>
-                  <li>Mantener la limpieza y el orden durante y después del servicio</li>
-                </ul>
-              </div>
-            </section>
-
-            <section>
-              <h2 class="text-2xl font-bold mb-4 gradient-text">8. Protección de Datos</h2>
-              <p class="mb-4">La información personal proporcionada por los clientes será tratada de acuerdo con nuestra política de privacidad y la normativa vigente de protección de datos (RGPD).</p>
-            </section>
-
-            <section>
-              <h2 class="text-2xl font-bold mb-4 gradient-text">9. Modificaciones de los Términos</h2>
-              <p class="mb-4">TecniHogar se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Los cambios entrarán en vigor desde su publicación en el sitio web.</p>
-            </section>
-
-            <section>
-              <h2 class="text-2xl font-bold mb-4 gradient-text">10. Contacto</h2>
-              <p class="mb-4">Para cualquier consulta sobre estos términos y condiciones, puede contactarnos en:</p>
-              <ul class="list-none space-y-2">
-                <li>Teléfono: 603 40 30 94</li>
-                <li>Dirección: C. la Vera, 10, Local 1 Bajo, 38611 San Isidro, Santa Cruz de Tenerife</li>
-                <li>Horario: Lunes a Domingo de 9:00 a 17:00</li>
-              </ul>
-            </section>
-          </div>
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">9. Modificaciones</h2>
+            <p class="mb-4">TecniHogar se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Los cambios entrarán en vigor desde su publicación en el sitio web.</p>
+          </section>
         </div>
       </div>
-    </main>
+    </div>
 
     <Footer />
     <WhatsAppButton />

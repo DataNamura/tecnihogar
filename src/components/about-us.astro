@@ -8,25 +8,15 @@ const stats = [
   { value: "98%", label: "Clientes Satisfechos", icon: "mdi:star" }
 ];
 
-const servicedAreas = [
-  {
-    region: "Tenerife Sur",
-    areas: ["San Isidro", "El Médano", "Los Cristianos", "Las Américas", "Costa Adeje", "Los Gigantes"]
-  },
-  {
-    region: "Tenerife Norte",
-    areas: ["Santa Cruz", "La Laguna", "Puerto de la Cruz", "La Orotava", "Los Realejos"]
-  },
-  {
-    region: "Zona Metropolitana",
-    areas: ["Santa Cruz de Tenerife", "San Cristóbal de La Laguna", "Tegueste", "El Rosario"]
-  }
-];
-
 const phoneNumber = "603403094";
 ---
 
-<ContentSection title="Servicio Técnico de Electrodomésticos en Tenerife" id="about">
+<ContentSection title="Sobre Nosotros" id="about">
+  <Fragment slot="lead">
+    <span class="text-primary">Expertos en reparación</span> de electrodomésticos en Tenerife. 
+    Más de <span class="text-primary">15 años</span> de experiencia nos avalan.
+  </Fragment>
+
   <div class="mt-8 flex justify-center">
     <img 
       src="/equipo.webp" 
@@ -46,7 +36,7 @@ const phoneNumber = "603403094";
     </p>
   </div>
 
-  <div class="grid grid-cols-3 gap-8 text-center mb-16 max-w-4xl mx-auto px-4">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-16 max-w-4xl mx-auto px-4">
     {stats.map(({ value, label, icon }) => (
       <div class="flex flex-col items-center bg-gradient-to-b from-gray-700 to-gray-800 p-6 rounded-xl shadow-lg transform transition-transform hover:scale-105">
         <Icon name={icon} class="size-16 text-primary mb-3" />
@@ -54,22 +44,6 @@ const phoneNumber = "603403094";
         <p class="text-sm text-gray-300 uppercase tracking-wide">{label}</p>
       </div>
     ))}
-  </div>
-
-  <div class="max-w-4xl mx-auto mb-16 px-4">
-    <h3 class="text-2xl font-bold mb-8 text-center gradient-text">Zonas de Servicio en Tenerife</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      {servicedAreas.map(({ region, areas }) => (
-        <div class="bg-gradient-to-b from-gray-700/50 to-gray-800/50 p-6 rounded-xl">
-          <h4 class="text-lg font-semibold mb-4 text-primary">{region}</h4>
-          <ul class="space-y-2 text-offset">
-            {areas.map((area) => (
-              <li>{area}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
   </div>
 
   <div class="mt-16 max-w-3xl mx-auto text-center px-4">
@@ -106,6 +80,9 @@ const phoneNumber = "603403094";
 <style>
   .text-primary {
     color: #3b82f6;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700;
   }
   .text-offset {
     color: #9ca3af;
