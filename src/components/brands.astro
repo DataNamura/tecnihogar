@@ -1,0 +1,89 @@
+---
+import ContentSection from "~/components/content-section.astro";
+
+const brands = [
+  { name: "Balay", image: "/balay.png" },
+  { name: "Bosch", image: "/bosch.png" },
+  { name: "Electrolux", image: "/electrolux.png" },
+  { name: "LG", image: "/lg.png" },
+  { name: "Philips", image: "/philips.png" },
+  { name: "Samsung", image: "/samsung.png" },
+  { name: "Siemens", image: "/siemens.png" },
+  { name: "Teka", image: "/teka.png" },
+];
+
+---
+
+<ContentSection title="Marcas" id="brands">
+  <div class="marquee">
+    <div class="marquee-content">
+      {brands.map(({ name, image }) => (
+        <div class="brand">
+          <img src={image} alt={name} class="h-12 grayscale transition-all duration-500 hover:grayscale-0" />
+        </div>
+      ))}
+      {brands.map(({ name, image }) => (
+        <div class="brand">
+          <img src={image} alt={name} class="h-12 grayscale transition-all duration-500 hover:grayscale-0" />
+        </div>
+      ))}
+    </div>
+  </div>
+</ContentSection>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .marquee-content {
+    display: flex;
+    gap: 40px;
+    animation: scroll 10s linear infinite;
+  }
+  
+  .brand {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Estilos responsivos para las imágenes */
+  .brand img {
+    height: 50px; /* Tamaño base */
+    transition: all 0.3s ease;
+  }
+
+  /* Tamaños adaptables */
+  @media (min-width: 640px) {
+    .brand img {
+      height: 60px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .brand img {
+      height: 70px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .brand img {
+      height: 80px;
+    }
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>

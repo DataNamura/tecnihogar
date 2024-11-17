@@ -1,0 +1,84 @@
+---
+import "@fontsource-variable/inter";
+import Header from "~/components/header.astro";
+import Footer from "~/components/footer.astro";
+import WhatsAppButton from "~/components/whatsapp-button.astro";
+import "~/styles/index.css";
+
+const description = "Aviso Legal de TecniHogar - Servicio Técnico de Electrodomésticos en Tenerife";
+---
+
+<html lang="es" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>Aviso Legal | TecniHogar - Servicio Técnico de Electrodomésticos en Tenerife</title>
+  </head>
+  <body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
+    <Header />
+    
+    <main class="flex flex-col items-center bg-default">
+      <div class="py-20 md:py-32 w-full">
+        <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+          <h1 class="text-center font-extrabold text-4xl md:text-5xl tracking-tight pb-16 gradient-text">Aviso Legal</h1>
+
+          <div class="space-y-8 text-justify">
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">1. Datos Identificativos</h2>
+              <p class="mb-4">En cumplimiento con el deber de información recogido en artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, a continuación se reflejan los siguientes datos:</p>
+              <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Denominación social: TecniHogar</li>
+                <li>Domicilio social: C. la Vera, 10, Local 1 Bajo, 38611 San Isidro, Santa Cruz de Tenerife</li>
+                <li>Teléfono: 603 40 30 94</li>
+                <li>Horario de atención: Lunes a Domingo de 9:00 a 17:00</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">2. Objeto</h2>
+              <p class="mb-4">El presente aviso legal regula el uso y utilización del sitio web tecnihogar.es, del que es titular TecniHogar.</p>
+              <p class="mb-4">La navegación por el sitio web de TecniHogar atribuye la condición de usuario del mismo e implica la aceptación plena y sin reservas de todas y cada una de las disposiciones incluidas en este Aviso Legal.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">3. Servicios</h2>
+              <p class="mb-4">TecniHogar ofrece servicios de reparación y mantenimiento de electrodomésticos en Tenerife y Tenerife Sur, incluyendo:</p>
+              <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Reparación de lavadoras, secadoras y lavavajillas</li>
+                <li>Servicio técnico de neveras y congeladores</li>
+                <li>Reparación de hornos y microondas</li>
+                <li>Mantenimiento de aires acondicionados</li>
+                <li>Reparación de campanas extractoras</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">4. Propiedad Intelectual e Industrial</h2>
+              <p class="mb-4">Los derechos de propiedad intelectual del contenido de las páginas web, su diseño gráfico y códigos son titularidad de TecniHogar y, por tanto, queda prohibida su reproducción, distribución, comunicación pública, transformación o cualquier otra actividad que se realice con los contenidos de la página web, ni siquiera aunque se citen las fuentes, salvo que se cuente con el consentimiento previo, expreso y por escrito de TecniHogar.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">5. Exclusión de Garantías y Responsabilidad</h2>
+              <p class="mb-4">TecniHogar no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos o lesivos en los contenidos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">6. Modificaciones</h2>
+              <p class="mb-4">TecniHogar se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en su portal, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a través del mismo como la forma en la que éstos aparezcan presentados o localizados en su portal.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">7. Legislación Aplicable y Jurisdicción</h2>
+              <p class="mb-4">La relación entre TecniHogar y el usuario se regirá por la normativa española vigente y cualquier controversia se someterá a los Juzgados y tribunales de la ciudad de Santa Cruz de Tenerife.</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+    <WhatsAppButton />
+  </body>
+</html>

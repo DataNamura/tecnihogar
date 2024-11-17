@@ -1,0 +1,99 @@
+---
+import "@fontsource-variable/inter";
+import Header from "~/components/header.astro";
+import Footer from "~/components/footer.astro";
+import WhatsAppButton from "~/components/whatsapp-button.astro";
+import "~/styles/index.css";
+
+const description = "Política de Cookies de TecniHogar - Servicio Técnico de Electrodomésticos en Tenerife";
+---
+
+<html lang="es" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>Política de Cookies | TecniHogar - Servicio Técnico de Electrodomésticos en Tenerife</title>
+  </head>
+  <body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
+    <Header />
+    
+    <main class="flex flex-col items-center bg-default">
+      <div class="py-20 md:py-32 w-full">
+        <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+          <h1 class="text-center font-extrabold text-4xl md:text-5xl tracking-tight pb-16 gradient-text">Política de Cookies</h1>
+
+          <div class="space-y-8 text-justify">
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">¿Qué son las cookies?</h2>
+              <p class="mb-4">Las cookies son pequeños archivos de texto que los sitios web almacenan en su dispositivo (ordenador, tablet o móvil) cuando los visita. Las cookies ayudan a que los sitios web recuerden información sobre su visita, lo que puede facilitar su próxima visita y hacer que el sitio le sea más útil.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">Tipos de cookies que utilizamos</h2>
+              <div class="space-y-4">
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">Cookies técnicas esenciales</h3>
+                  <p>Son aquellas que permiten al usuario la navegación a través de la página web y la utilización de las diferentes opciones o servicios que en ella existen.</p>
+                </div>
+
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">Cookies analíticas</h3>
+                  <p>Nos permiten analizar el comportamiento de los usuarios de forma agregada para mejorar el servicio.</p>
+                </div>
+
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">Cookies de personalización</h3>
+                  <p>Permiten al usuario acceder al servicio con algunas características predefinidas en función de una serie de criterios.</p>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">¿Cómo utilizamos las cookies?</h2>
+              <p class="mb-4">Utilizamos cookies para:</p>
+              <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Asegurar que nuestro sitio web funcione correctamente</li>
+                <li>Guardar sus preferencias</li>
+                <li>Mejorar la seguridad del sitio</li>
+                <li>Analizar cómo los usuarios interactúan con nuestro sitio</li>
+                <li>Medir la efectividad de nuestra publicidad</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">Control de cookies</h2>
+              <p class="mb-4">Puede configurar su navegador para que rechace todas las cookies, o para que le avise cuando se envía una cookie. Sin embargo, si rechaza las cookies, es posible que algunas partes de nuestro sitio web no funcionen correctamente.</p>
+              <p class="mb-4">Los navegadores más populares ofrecen instrucciones para gestionar las cookies en sus páginas de ayuda:</p>
+              <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li>Google Chrome</li>
+                <li>Mozilla Firefox</li>
+                <li>Microsoft Edge</li>
+                <li>Safari</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">Actualizaciones de nuestra política de cookies</h2>
+              <p class="mb-4">Podemos actualizar nuestra política de cookies de vez en cuando. Le recomendamos que revise esta página periódicamente para mantenerse informado sobre cualquier cambio.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold mb-4 gradient-text">Contacto</h2>
+              <p class="mb-4">Si tiene alguna pregunta sobre nuestra política de cookies, puede contactarnos en:</p>
+              <ul class="list-none space-y-2">
+                <li>Teléfono: 603 40 30 94</li>
+                <li>Dirección: C. la Vera, 10, Local 1 Bajo, 38611 San Isidro, Santa Cruz de Tenerife</li>
+                <li>Horario: Lunes a Domingo de 9:00 a 17:00</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+    <WhatsAppButton />
+  </body>
+</html>

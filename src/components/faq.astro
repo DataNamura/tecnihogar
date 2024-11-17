@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+
+const faqs = [
+  {
+    question: "¿Cuánto cuesta una reparación?",
+    answer:
+      "El costo varía según el tipo de electrodoméstico y la reparación necesaria. Realizamos un diagnóstico previo y proporcionamos un presupuesto sin compromiso.",
+  },
+  {
+    question: "¿Cuánto tiempo tarda una reparación?",
+    answer:
+      "La mayoría de las reparaciones se realizan el mismo día. El tiempo exacto dependerá del problema y la disponibilidad de repuestos.",
+  },
+  {
+    question: "¿Qué garantía ofrecen?",
+    answer:
+      "Todas nuestras reparaciones tienen una garantía de 6 meses en mano de obra y repuestos.",
+  },
+  {
+    question: "¿Trabajan con todas las marcas?",
+    answer:
+      "Sí, somos servicio técnico oficial de las principales marcas y tenemos experiencia con todo tipo de electrodomésticos.",
+  },
+];
+---
+
+<ContentSection title="Preguntas Frecuentes" id="faq">
+  <Fragment slot="lead">
+  </Fragment>
+
+  <div class="max-w-3xl">
+    <div class="divide-y divide-default">
+      {
+        faqs.map(({ question, answer }) => (
+          <div class="py-6">
+            <h3 class="flex items-center gap-2 text-lg font-bold">
+              <Icon name="mdi:help-circle" class="size-6 text-primary" />
+              {question}
+            </h3>
+            <p class="mt-2 text-offset">{answer}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</ContentSection>

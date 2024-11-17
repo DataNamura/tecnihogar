@@ -1,0 +1,55 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+
+const guarantees = [
+  {
+    title: "6 Meses de Garantía",
+    description: "Todas nuestras reparaciones incluyen 6 meses de garantía en piezas y mano de obra.",
+    icon: "mdi:shield-check",
+  },
+  {
+    title: "Repuestos Originales",
+    description: "Utilizamos exclusivamente repuestos originales de cada marca.",
+    icon: "mdi:certificate",
+  },
+  {
+    title: "Técnicos Certificados",
+    description: "Nuestros técnicos están certificados por los fabricantes.",
+    icon: "mdi:account-check",
+  },
+];
+---
+
+<ContentSection title="Garantía" id="guarantee">
+  <div class="max-w-6xl">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      {
+        guarantees.map(({ title, description, icon }) => (
+          <div class="flex flex-col items-center gap-4 border border-default bg-offset p-6 rounded-xl text-center">
+            <div class="size-16 rounded-full border-2 border-current p-3">
+              <Icon name={icon} class="size-full" />
+            </div>
+            <h3 class="text-xl font-bold">{title}</h3>
+            <p class="text-offset">{description}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 text-center">
+      <p class="text-lg text-offset">
+        Si tienes algún problema después de la reparación, lo solucionamos sin costo
+        adicional durante el período de garantía.
+      </p>
+      <div class="mt-6">
+        <a
+          href="#contact"
+          class="inline-block rounded-xl bg-primary px-6 py-3 text-white hover:bg-secondary"
+        >
+          Solicitar Servicio
+        </a>
+      </div>
+    </div>
+  </div>
+</ContentSection>

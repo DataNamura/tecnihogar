@@ -1,0 +1,113 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+
+const stats = [
+  { value: "15+", label: "Años de Experiencia", icon: "mdi:calendar-check" },
+  { value: "5000+", label: "Reparaciones Exitosas", icon: "mdi:tools" },
+  { value: "98%", label: "Clientes Satisfechos", icon: "mdi:star" }
+];
+
+const servicedAreas = [
+  {
+    region: "Tenerife Sur",
+    areas: ["San Isidro", "El Médano", "Los Cristianos", "Las Américas", "Costa Adeje", "Los Gigantes"]
+  },
+  {
+    region: "Tenerife Norte",
+    areas: ["Santa Cruz", "La Laguna", "Puerto de la Cruz", "La Orotava", "Los Realejos"]
+  },
+  {
+    region: "Zona Metropolitana",
+    areas: ["Santa Cruz de Tenerife", "San Cristóbal de La Laguna", "Tegueste", "El Rosario"]
+  }
+];
+
+const phoneNumber = "603403094";
+---
+
+<ContentSection title="Servicio Técnico de Electrodomésticos en Tenerife" id="about">
+  <div class="mt-8 flex justify-center">
+    <img 
+      src="/equipo.webp" 
+      alt="Equipo de técnicos especializados de TecniHogar en Tenerife" 
+      class="rounded-lg shadow-lg max-w-full md:max-w-3xl" 
+      width="800"
+      height="450"
+    />
+  </div>
+
+  <div class="max-w-3xl mx-auto text-center mb-16">
+    <p class="text-lg text-offset mb-6">
+      En TecniHogar, somos el servicio técnico de confianza para la reparación de electrodomésticos en toda la isla de Tenerife. Con más de 15 años de experiencia, nuestro equipo de técnicos certificados está comprometido con brindar soluciones rápidas y efectivas a todos nuestros clientes, tanto en Tenerife Sur como en Tenerife Norte.
+    </p>
+    <p class="text-lg text-offset">
+      Como servicio técnico oficial de las principales marcas, garantizamos reparaciones profesionales con garantía y repuestos originales. Nuestro compromiso con la excelencia nos ha convertido en el referente en reparación de electrodomésticos en toda la isla.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-3 gap-8 text-center mb-16 max-w-4xl mx-auto px-4">
+    {stats.map(({ value, label, icon }) => (
+      <div class="flex flex-col items-center bg-gradient-to-b from-gray-700 to-gray-800 p-6 rounded-xl shadow-lg transform transition-transform hover:scale-105">
+        <Icon name={icon} class="size-16 text-primary mb-3" />
+        <p class="text-4xl font-extrabold text-white mb-2">{value}</p>
+        <p class="text-sm text-gray-300 uppercase tracking-wide">{label}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="max-w-4xl mx-auto mb-16 px-4">
+    <h3 class="text-2xl font-bold mb-8 text-center gradient-text">Zonas de Servicio en Tenerife</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      {servicedAreas.map(({ region, areas }) => (
+        <div class="bg-gradient-to-b from-gray-700/50 to-gray-800/50 p-6 rounded-xl">
+          <h4 class="text-lg font-semibold mb-4 text-primary">{region}</h4>
+          <ul class="space-y-2 text-offset">
+            {areas.map((area) => (
+              <li>{area}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="mt-16 max-w-3xl mx-auto text-center px-4">
+    <p class="text-lg text-offset italic mb-16">
+      "Nuestro compromiso es ofrecer un servicio de calidad, rápido y eficiente en toda la isla de Tenerife. Confíe en los profesionales de TecniHogar para mantener sus electrodomésticos funcionando perfectamente."
+    </p>
+
+    <div class="bg-gradient-to-r from-blue-600 to-blue-400 p-8 md:p-10 rounded-2xl shadow-xl">
+      <h4 class="text-2xl md:text-3xl font-bold text-white mb-4">¿Necesitas reparar un electrodoméstico?</h4>
+      <p class="text-white/90 mb-8 text-lg">Contacta con nuestros técnicos especializados y obtén un diagnóstico profesional</p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a
+          href={`tel:${phoneNumber}`}
+          class="flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 transition-colors px-8 py-4 rounded-xl font-semibold text-lg w-full sm:w-auto justify-center"
+        >
+          <Icon name="mdi:phone" class="size-6" />
+          Llamar ahora
+        </a>
+        <a
+          href={`https://wa.me/34${phoneNumber}`}
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] transition-colors text-white px-8 py-4 rounded-xl font-semibold text-lg w-full sm:w-auto justify-center"
+        >
+          <Icon name="mdi:whatsapp" class="size-6" />
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</ContentSection>
+
+<style>
+  .text-primary {
+    color: #3b82f6;
+  }
+  .text-offset {
+    color: #9ca3af;
+  }
+</style>

@@ -1,0 +1,107 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import { Icon } from "astro-icon/components";
+
+const services = [
+  {
+    title: "Lavadoras",
+    icon: "mdi:washing-machine",
+    image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=800&auto=format&fit=crop",
+    problems: ["No centrifuga", "No desagua", "Hace ruido", "No calienta", "Pierde agua"],
+    description: "Servicio técnico de lavadoras en Tenerife y Tenerife Sur. Reparación especializada para todas las marcas con diagnóstico preciso y solución garantizada."
+  },
+  {
+    title: "Refrigeradores",
+    icon: "mdi:fridge",
+    image: "https://images.unsplash.com/photo-1536353284924-9220c464e262?q=80&w=800&auto=format&fit=crop",
+    problems: ["No enfría", "Hace ruido", "Forma hielo", "Consume mucha energía", "Gotea agua"],
+    description: "Reparación de neveras y refrigeradores en Tenerife y Tenerife Sur. Servicio técnico profesional para todo tipo de averías en San Isidro y alrededores."
+  },
+  {
+    title: "Secadoras",
+    icon: "mdi:tumble-dryer",
+    image: "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?q=80&w=800&auto=format&fit=crop",
+    problems: ["No calienta", "No gira el tambor", "Hace ruido", "No seca bien", "Se apaga sola"],
+    description: "Reparación de secadoras en Tenerife y zona sur. Servicio técnico a domicilio rápido y eficiente para todas las marcas y modelos en Tenerife Sur."
+  },
+  {
+    title: "Lavavajillas",
+    icon: "mdi:dishwasher",
+    image: "https://images.unsplash.com/photo-1581622558663-b2e33377dfb2?q=80&w=800&auto=format&fit=crop",
+    problems: ["No desagua", "No limpia bien", "Pierde agua", "No enciende", "Hace ruido"],
+    description: "Servicio técnico de lavavajillas en Tenerife y Tenerife Sur. Reparación profesional con garantía y repuestos originales en San Isidro y toda la isla."
+  },
+  {
+    title: "Hornos",
+    icon: "mdi:stove",
+    image: "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?q=80&w=800&auto=format&fit=crop",
+    problems: ["No calienta", "Temperatura inestable", "Puerta no cierra", "Función grill no funciona", "Hace ruido"],
+    description: "Reparación de hornos en Tenerife y Tenerife Sur. Servicio técnico especializado para hornos eléctricos y de gas de todas las marcas en la zona sur."
+  },
+  {
+    title: "Aires Acondicionados",
+    icon: "mdi:air-conditioner",
+    image: "https://images.unsplash.com/photo-1581275214100-a5d84b175a2a?q=80&w=800&auto=format&fit=crop",
+    problems: ["No enfría", "Huele mal", "Fuga de gas", "Hace ruido", "No enciende"],
+    description: "Instalación y reparación de aire acondicionado en Tenerife y Tenerife Sur. Mantenimiento y servicio técnico profesional en San Isidro y toda la isla."
+  },
+  {
+    title: "Microondas",
+    icon: "mdi:microwave",
+    image: "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?q=80&w=800&auto=format&fit=crop",
+    problems: ["No calienta", "Plato no gira", "Hace ruido", "Chispas", "No enciende"],
+    description: "Reparación de microondas a domicilio en Tenerife y Tenerife Sur. Servicio técnico rápido y profesional para todas las marcas en la zona sur."
+  },
+  {
+    title: "Extractores",
+    icon: "mdi:fan",
+    image: "https://images.unsplash.com/photo-1633094891400-3b8bf9c7bc03?q=80&w=800&auto=format&fit=crop",
+    problems: ["No aspira", "Hace ruido", "Luz no funciona", "Motor no gira", "Filtros sucios"],
+    description: "Reparación de campanas extractoras en Tenerife y Tenerife Sur. Servicio técnico profesional en San Isidro y toda la zona sur de la isla."
+  }
+];
+
+---
+
+<ContentSection title="Nuestros Servicios" id="services">
+  <Fragment slot="lead">
+    Servicio técnico especializado en <span class="text-primary">reparación de electrodomésticos</span> en Tenerife y Tenerife Sur. 
+    Más de 15 años de experiencia reparando electrodomésticos en toda la isla.
+  </Fragment>
+  <div class="grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
+    {
+      services.map(({ title, icon, image, problems, description }) => (
+        <div class="flex flex-col gap-4 border border-default bg-offset p-6 rounded-xl overflow-hidden">
+          <div class="relative h-48 w-full overflow-hidden rounded-lg">
+            <img
+              src={image}
+              alt={`Servicio de reparación de ${title}`}
+              class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+              <Icon name={icon} class="absolute bottom-4 right-4 size-12 text-white drop-shadow-lg" />
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="size-12 rounded-full border-2 border-current p-2">
+              <Icon name={icon} class="size-full" />
+            </div>
+            <h3 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-500 via-blue-400 to-blue-300">{title}</h3>
+          </div>
+          <p class="text-offset">{description}</p>
+          <div class="mt-4">
+            <h4 class="font-bold mb-2">Problemas comunes:</h4>
+            <ul class="grid grid-cols-2 gap-2 text-sm">
+              {problems.map((problem) => (
+                <li class="flex items-center gap-2">
+                  <Icon name="mdi:check-circle" class="size-5 text-primary" />
+                  <span>{problem}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</ContentSection>

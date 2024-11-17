@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.tecnihogar-tenerife.es/sitemap.xml
+
+# Allow crawling of all content
+User-agent: *
+Disallow:
+
+# Specific rules for images
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+
+# Specific rules for Google Mobile
+User-agent: Googlebot-Mobile
+Allow: /
