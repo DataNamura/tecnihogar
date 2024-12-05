@@ -2,33 +2,6 @@
 import ContentSection from "~/components/content-section.astro";
 import { Icon } from "astro-icon/components";
 
-const features = [
-  {
-    title: "Experiencia",
-    description:
-      "Más de 15 años de experiencia en el sector de la reparación de electrodomésticos.",
-    icon: "mdi:wrench",
-  },
-  {
-    title: "Profesionalidad",
-    description:
-      "Personal altamente cualificado y en constante formación para ofrecer el mejor servicio.",
-    icon: "mdi:certificate",
-  },
-  {
-    title: "Garantía",
-    description:
-      "Todas nuestras reparaciones cuentan con garantía para tu tranquilidad.",
-    icon: "mdi:shield-check",
-  },
-  {
-    title: "Rapidez",
-    description:
-      "Servicio rápido y eficiente para minimizar las molestias.",
-    icon: "mdi:clock-fast",
-  },
-];
-
 const stats = [
   { value: "15+", label: "Años de Experiencia", icon: "mdi:calendar-check" },
   { value: "5000+", label: "Reparaciones Exitosas", icon: "mdi:tools" },
@@ -63,20 +36,6 @@ const phoneNumber = "603403094";
       Como servicio técnico oficial de las principales marcas, garantizamos reparaciones profesionales con garantía y repuestos originales. Nuestro compromiso con la excelencia nos ha convertido en el referente en reparación de electrodomésticos en toda la isla.
     </p>
   </div>
-
-  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-    {
-      features.map(({ title, description, icon }) => (
-        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
-          <div class="size-16 rounded-full border-2 border-current p-3">
-            <Icon name={icon} class="size-full" />
-          </div>
-          <p class="text-center font-extrabold text-xl">{title}</p>
-          <p class="text-center text-offset text-sm">{description}</p>
-        </li>
-      ))
-    }
-  </ul>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-16 max-w-4xl mx-auto px-4">
     {stats.map(({ value, label, icon }) => (
