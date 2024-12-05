@@ -1,6 +1,33 @@
 ---
-import { Icon } from "astro-icon/components";
 import ContentSection from "~/components/content-section.astro";
+import { Icon } from "astro-icon/components";
+
+const features = [
+  {
+    title: "Experiencia",
+    description:
+      "Más de 15 años de experiencia en el sector de la reparación de electrodomésticos.",
+    icon: "mdi:wrench",
+  },
+  {
+    title: "Profesionalidad",
+    description:
+      "Personal altamente cualificado y en constante formación para ofrecer el mejor servicio.",
+    icon: "mdi:certificate",
+  },
+  {
+    title: "Garantía",
+    description:
+      "Todas nuestras reparaciones cuentan con garantía para tu tranquilidad.",
+    icon: "mdi:shield-check",
+  },
+  {
+    title: "Rapidez",
+    description:
+      "Servicio rápido y eficiente para minimizar las molestias.",
+    icon: "mdi:clock-fast",
+  },
+];
 
 const stats = [
   { value: "15+", label: "Años de Experiencia", icon: "mdi:calendar-check" },
@@ -13,8 +40,9 @@ const phoneNumber = "603403094";
 
 <ContentSection title="Sobre Nosotros" id="about">
   <Fragment slot="lead">
-    <span class="text-primary">Expertos en reparación</span> de electrodomésticos en Tenerife. 
-    Más de <span class="text-primary">15 años</span> de experiencia nos avalan.
+    En <span class="text-primary">S.S.T.TORRES</span>, nos dedicamos a la
+    reparación y mantenimiento de electrodomésticos en Tenerife. Nuestro
+    compromiso es ofrecer un servicio de calidad, rápido y eficiente.
   </Fragment>
 
   <div class="mt-8 flex justify-center">
@@ -29,12 +57,26 @@ const phoneNumber = "603403094";
 
   <div class="max-w-3xl mx-auto text-center mb-16">
     <p class="text-lg text-offset mb-6">
-      En TecniHogar, somos el servicio técnico de confianza para la reparación de electrodomésticos en toda la isla de Tenerife. Con más de 15 años de experiencia, nuestro equipo de técnicos certificados está comprometido con brindar soluciones rápidas y efectivas a todos nuestros clientes, tanto en Tenerife Sur como en Tenerife Norte.
+      En S.S.T.TORRES, somos el servicio técnico de confianza para la reparación de electrodomésticos en toda la isla de Tenerife. Con más de 15 años de experiencia, nuestro equipo de técnicos certificados está comprometido con brindar soluciones rápidas y efectivas a todos nuestros clientes, tanto en Tenerife Sur como en Tenerife Norte.
     </p>
     <p class="text-lg text-offset">
       Como servicio técnico oficial de las principales marcas, garantizamos reparaciones profesionales con garantía y repuestos originales. Nuestro compromiso con la excelencia nos ha convertido en el referente en reparación de electrodomésticos en toda la isla.
     </p>
   </div>
+
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+    {
+      features.map(({ title, description, icon }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="size-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} class="size-full" />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-16 max-w-4xl mx-auto px-4">
     {stats.map(({ value, label, icon }) => (
@@ -48,7 +90,7 @@ const phoneNumber = "603403094";
 
   <div class="mt-16 max-w-3xl mx-auto text-center px-4">
     <p class="text-lg text-offset italic mb-16">
-      "Nuestro compromiso es ofrecer un servicio de calidad, rápido y eficiente en toda la isla de Tenerife. Confíe en los profesionales de TecniHogar para mantener sus electrodomésticos funcionando perfectamente."
+      "Nuestro compromiso es ofrecer un servicio de calidad, rápido y eficiente en toda la isla de Tenerife. Confíe en los profesionales de S.S.T.TORRES para mantener sus electrodomésticos funcionando perfectamente."
     </p>
 
     <div class="bg-gradient-to-r from-blue-600 to-blue-400 p-8 md:p-10 rounded-2xl shadow-xl">
@@ -56,13 +98,6 @@ const phoneNumber = "603403094";
       <p class="text-white/90 mb-8 text-lg">Contacta con nuestros técnicos especializados y obtén un diagnóstico profesional</p>
       
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a
-          href={`tel:${phoneNumber}`}
-          class="flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 transition-colors px-8 py-4 rounded-xl font-semibold text-lg w-full sm:w-auto justify-center"
-        >
-          <Icon name="mdi:phone" class="size-6" />
-          Llamar ahora
-        </a>
         <a
           href={`https://wa.me/34${phoneNumber}`}
           target="_blank"
