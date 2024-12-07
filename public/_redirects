@@ -1,0 +1,25 @@
+# Redirecciones 301 (permanentes)
+/inicio              /
+/home                /
+/contacto            /#contact
+/servicios           /#services
+/about               /#about
+/sobre-nosotros      /#about
+/faq                 /#faq
+/preguntas           /#faq
+
+# Forzar HTTPS
+/* https://:splat 301!
+
+# Redireccionar www a non-www
+https://www.ssttorres.es/* https://ssttorres.es/:splat 301!
+
+# Manejar URLs antiguas o comunes
+/reparacion-lavadoras     /#services
+/reparacion-neveras      /#services
+/reparacion-hornos       /#services
+/servicio-tecnico        /#services
+/presupuesto            /#contact
+
+# Redireccionar 404s al inicio
+/* / 404

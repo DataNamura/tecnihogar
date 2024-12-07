@@ -1,19 +1,26 @@
+# Reglas globales para todos los robots
 User-agent: *
 Allow: /
-Sitemap: https://www.tecnihogar-tenerife.es/sitemap.xml
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /*.json$
 
-# Allow crawling of all content
-User-agent: *
-Disallow:
+# Sitemap
+Sitemap: https://ssttorres.es/sitemap-index.xml
 
-# Specific rules for images
+# Reglas específicas para imágenes
 User-agent: Googlebot-Image
 Allow: /images/
 Allow: /*.jpg$
 Allow: /*.jpeg$
 Allow: /*.gif$
 Allow: /*.png$
+Allow: /*.webp$
 
-# Specific rules for Google Mobile
-User-agent: Googlebot-Mobile
-Allow: /
+# Reglas específicas para Google
+User-agent: Googlebot
+Crawl-delay: 1
+
+# Host preferido
+Host: https://ssttorres.es

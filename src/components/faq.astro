@@ -28,31 +28,49 @@ const faqs = [
     answer: "Aceptamos efectivo, tarjetas de crédito/débito, transferencia bancaria y Bizum para su comodidad."
   }
 ];
+
+// Generar el Schema.org FAQPage
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
 
 <ContentSection title="Preguntas Frecuentes" id="faq">
   <Fragment slot="lead">
-    Resolvemos tus dudas sobre nuestro <span class="text-primary">servicio técnico</span> de electrodomésticos
+    <h2 class="text-3xl font-bold mb-4">Dudas Frecuentes sobre Reparación de Electrodomésticos</h2>
+    <p>Resolvemos tus dudas sobre nuestro <span class="text-primary">servicio técnico</span> de electrodomésticos en Tenerife Sur</p>
   </Fragment>
-  <div class="max-w-3xl mx-auto">
+  
+  <div class="max-w-3xl mx-auto" itemscope itemtype="https://schema.org/FAQPage">
     {
       faqs.map((faq, index) => (
-        <div class="mb-4">
+        <div class="mb-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <details class="group bg-offset rounded-lg">
             <summary class="flex cursor-pointer items-center justify-between gap-4 p-4 text-lg font-semibold text-primary">
-              <span>{faq.question}</span>
+              <span itemprop="name">{faq.question}</span>
               <span class="text-primary transition-transform group-open:rotate-180">
                 <Icon name="mdi:chevron-down" class="size-6" />
               </span>
             </summary>
-            <div class="px-4 pb-4">
-              <p class="text-offset">{faq.answer}</p>
+            <div class="px-4 pb-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-offset" itemprop="text">{faq.answer}</p>
             </div>
           </details>
         </div>
       ))
     }
   </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </ContentSection>
 
 <style>

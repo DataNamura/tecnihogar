@@ -1,0 +1,42 @@
+---
+interface Props {
+  path: string;
+}
+
+const { path } = Astro.props;
+
+// Convertir la ruta en un array de segmentos
+const segments: Array<{ name: string; href: string }> = path
+  .split('/')
+  .filter(Boolean)
+  .map((segment: string) => ({
+    name: segment.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
+    href: `/${segment}`
+  }));
+---
+
+<nav aria-label="Breadcrumb" class="w-full max-w-6xl mx-auto px-4 py-2">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="flex flex-wrap text-sm">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+      <a itemprop="item" href="/" class="text-primary hover:text-secondary">
+        <span itemprop="name">Inicio</span>
+      </a>
+      <meta itemprop="position" content="1" />
+      {segments.length > 0 && <span class="mx-2">/</span>}
+    </li>
+    {
+      segments.map((segment, index) => (
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+          <a itemprop="item" href={segment.href} class="text-primary hover:text-secondary">
+            <span itemprop="name">{segment.name}</span>
+          </a>
+          <meta itemprop="position" content={(index + 2).toString()} />
+          {index < segments.length - 1 && <span class="mx-2">/</span>}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+Los cambios principales que he realizado son:
+
+Añadido una interfaz Props p
