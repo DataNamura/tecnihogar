@@ -2,6 +2,9 @@
 import "@fontsource-variable/inter";
 import CookieConsent from "~/components/cookie-consent.astro";
 import Navbar from "~/components/navbar.astro";
+import Footer from "~/components/footer.astro";
+import PhoneButton from "~/components/phone-button.astro";
+import WhatsAppButton from "~/components/whatsapp-button.astro";
 
 interface Props {
   title?: string;
@@ -58,5 +61,8 @@ const {
     <Navbar />
     <slot />
     <CookieConsent />
+    <Footer />
+    <PhoneButton />
+    <WhatsAppButton />
   </body>
 </html>

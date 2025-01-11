@@ -12,20 +12,18 @@ const menuItems = [
   { name: "Contacto", url: "/#contact" },
 ];
 
-const phoneNumber = "603403094";
+const phoneNumber = "922078429";
 ---
 
 <nav class="fixed top-0 z-50 w-full bg-default/80 backdrop-blur-lg border-b border-default">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
-      <!-- Logo y Nombre -->
       <div class="flex-shrink-0 flex items-center">
         <a href="/" class="text-xl font-bold text-primary">
           S.S.T.TORRES
         </a>
       </div>
 
-      <!-- Menú de navegación (escritorio) -->
       <div class="hidden md:flex items-center space-x-4">
         {menuItems.map((item) => (
           <a
@@ -37,18 +35,16 @@ const phoneNumber = "603403094";
         ))}
       </div>
 
-      <!-- Botón de contacto (escritorio) -->
       <div class="hidden md:flex items-center space-x-4">
         <a
           href={`tel:${phoneNumber}`}
           class="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
         >
           <Icon name="mdi:phone" class="size-5" />
-          <span>603 40 30 94</span>
+          <span>922 07 84 29</span>
         </a>
       </div>
 
-      <!-- Botón menú móvil -->
       <div class="md:hidden flex items-center">
         <button
           type="button"
@@ -62,7 +58,6 @@ const phoneNumber = "603403094";
     </div>
   </div>
 
-  <!-- Menú móvil -->
   <div class="md:hidden hidden" id="mobile-menu">
     <div class="px-2 pt-2 pb-3 space-y-1">
       {menuItems.map((item) => (
@@ -78,14 +73,13 @@ const phoneNumber = "603403094";
         class="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-base font-medium transition-colors mt-4 mx-3"
       >
         <Icon name="mdi:phone" class="size-5" />
-        <span>603 40 30 94</span>
+        <span>922 07 84 29</span>
       </a>
     </div>
   </div>
 </nav>
 
 <script>
-  // Toggle menú móvil
   const mobileMenuButton = document.querySelector('.mobile-menu-button');
   const mobileMenu = document.querySelector('#mobile-menu');
 
@@ -93,7 +87,6 @@ const phoneNumber = "603403094";
     mobileMenu?.classList.toggle('hidden');
   });
 
-  // Cerrar menú al hacer click en un enlace
   const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
   mobileMenuLinks?.forEach(link => {
     link.addEventListener('click', () => {
@@ -101,7 +94,6 @@ const phoneNumber = "603403094";
     });
   });
 
-  // Cerrar menú al hacer scroll
   let lastScroll = 0;
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
@@ -111,14 +103,12 @@ const phoneNumber = "603403094";
     lastScroll = currentScroll;
   });
 
-  // Smooth scroll para enlaces internos
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const href = this.getAttribute('href');
       if (href === '#') return;
       
-      // Si estamos en la página principal
       if (window.location.pathname === '/') {
         const target = document.querySelector(href);
         if (target) {
@@ -127,7 +117,6 @@ const phoneNumber = "603403094";
           });
         }
       } else {
-        // Si estamos en otra página, redirigir a la landing page con el hash
         window.location.href = '/' + href;
       }
     });
