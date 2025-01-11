@@ -14,7 +14,7 @@ const services = [
       "No calienta el agua",
       "Error en el programa"
     ],
-    description: " Servicio técnico oficial de lavadoras en Tenerife Sur. Reparamos todas las marcas: Balay, Bosch, Samsung, LG, Siemens. Diagnóstico en 24h, solución garantizada y piezas originales.",
+    description: "Servicio técnico oficial de lavadoras en Tenerife Sur. Reparamos todas las marcas: Balay, Bosch, Samsung, LG, Siemens. Diagnóstico en 24h, solución garantizada y piezas originales.",
     schema: {
       "@type": "Service",
       "name": "Reparación de Lavadoras en Tenerife Sur",
@@ -33,7 +33,7 @@ const services = [
       "Alto consumo eléctrico",
       "Pérdidas de agua"
     ],
-    description: " Expertos en reparación de neveras y refrigeradores en Tenerife Sur. Servicio urgente 24/48h para averías de temperatura. Trabajamos con todas las marcas principales.",
+    description: "Expertos en reparación de neveras y refrigeradores en Tenerife Sur. Servicio urgente 24/48h para averías de temperatura. Trabajamos con todas las marcas principales.",
     schema: {
       "@type": "Service",
       "name": "Reparación de Refrigeradores en Tenerife Sur",
@@ -52,7 +52,7 @@ const services = [
       "Ciclo incompleto",
       "Problemas eléctricos"
     ],
-    description: " Reparación profesional de secadoras en Tenerife Sur. Servicio técnico multimarca con experiencia en Bosch, Siemens, Balay y más. Solución rápida y garantizada.",
+    description: "Reparación profesional de secadoras en Tenerife Sur. Servicio técnico multimarca con experiencia en Bosch, Siemens, Balay y más. Solución rápida y garantizada.",
     schema: {
       "@type": "Service",
       "name": "Reparación de Secadoras en Tenerife Sur",
@@ -71,7 +71,7 @@ const services = [
       "No enciende",
       "Ruidos extraños"
     ],
-    description: " Servicio técnico especializado en lavavajillas en Tenerife Sur. Reparación de todas las marcas con garantía. Diagnóstico mismo día y presupuesto sin compromiso.",
+    description: "Servicio técnico especializado en lavavajillas en Tenerife Sur. Reparación de todas las marcas con garantía. Diagnóstico mismo día y presupuesto sin compromiso.",
     schema: {
       "@type": "Service",
       "name": "Reparación de Lavavajillas en Tenerife Sur",
@@ -90,29 +90,10 @@ const services = [
       "Fallo en grill/resistencias",
       "Panel de control"
     ],
-    description: " Especialistas en reparación de hornos en Tenerife Sur. Servicio técnico para hornos eléctricos y de gas. Reparamos averías complejas en todas las marcas.",
+    description: "Especialistas en reparación de hornos en Tenerife Sur. Servicio técnico para hornos eléctricos y de gas. Reparamos averías complejas en todas las marcas.",
     schema: {
       "@type": "Service",
       "name": "Reparación de Hornos en Tenerife Sur",
-      "areaServed": "Tenerife Sur",
-      "category": "Reparación Electrodomésticos"
-    }
-  },
-  {
-    title: "Microondas",
-    icon: "mdi:microwave",
-    image: "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?q=80&w=800&auto=format&fit=crop",
-    problems: [
-      "No calienta",
-      "Plato no gira",
-      "Ruidos anormales",
-      "Chispas internas",
-      "Panel no responde"
-    ],
-    description: " Reparación profesional de microondas en Tenerife Sur. Servicio a domicilio rápido y eficiente. Expertos en todas las marcas y modelos. Garantía en reparaciones.",
-    schema: {
-      "@type": "Service",
-      "name": "Reparación de Microondas en Tenerife Sur",
       "areaServed": "Tenerife Sur",
       "category": "Reparación Electrodomésticos"
     }
@@ -135,27 +116,141 @@ const services = [
       "areaServed": "Tenerife Sur",
       "category": "Reparación Electrodomésticos"
     }
+  },
+  {
+    title: "Microondas",
+    icon: "mdi:microwave",
+    image: "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?q=80&w=800&auto=format&fit=crop",
+    problems: [
+      "No calienta",
+      "Plato no gira",
+      "Ruidos anormales",
+      "Chispas internas",
+      "Panel no responde"
+    ],
+    description: "Reparación profesional de microondas en Tenerife Sur. Servicio a domicilio rápido y eficiente. Expertos en todas las marcas y modelos. Garantía en reparaciones.",
+    schema: {
+      "@type": "Service",
+      "name": "Reparación de Microondas en Tenerife Sur",
+      "areaServed": "Tenerife Sur",
+      "category": "Reparación Electrodomésticos"
+    }
   }
 ];
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "S.S.T.TORRES - Servicio Técnico de Electrodomésticos",
+  "description": "Servicio técnico oficial de electrodomésticos en Tenerife Sur. Especialistas en reparación de lavadoras, neveras, hornos y electrodomésticos de todas las marcas. Servicio urgente en San Isidro, Los Cristianos y Las Américas.",
+  "image": ["/equipo.webp"],
+  "@id": "https://reparacionenelectrodomesticos.com",
+  "url": "https://reparacionenelectrodomesticos.com",
+  "telephone": "922078429",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C. la Vera, 10, Local 1 Bajo",
+    "addressLocality": "San Isidro",
+    "postalCode": "38611",
+    "addressRegion": "Santa Cruz de Tenerife",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.079153,
+    "longitude": -16.563350
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.079153,
+      "longitude": -16.563350
+    },
+    "geoRadius": "50000"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "17:00"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de Reparación de Electrodomésticos",
+    "itemListElement": services.map(service => ({
+      "@type": "OfferCatalog",
+      "name": service.title,
+      "description": service.description
+    }))
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "150"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Cliente Satisfecho"
+    },
+    "reviewBody": "Excelente servicio técnico. Rápidos y profesionales."
+  },
+  "potentialAction": {
+    "@type": "OrderAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "tel:922078429",
+      "inLanguage": "es",
+      "actionPlatform": [
+        "http://schema.org/MobileWebPlatform",
+        "http://schema.org/DesktopWebPlatform"
+      ]
+    }
+  }
+};
 ---
 
 <ContentSection title="Nuestros Servicios" id="services">
   <Fragment slot="lead">
-    <h2 class="text-3xl font-bold">Servicio Técnico Especializado en Tenerife Sur</h2>
-    <p class="mt-4">
-      Expertos en <span class="text-primary">reparación de electrodomésticos</span> con más de 15 años de experiencia. 
-      Servicio oficial multimarca en toda la zona sur de Tenerife.
-    </p>
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+        Servicio Técnico Oficial de Electrodomésticos en Tenerife
+      </h2>
+      <p class="text-base md:text-lg mt-4 space-y-2">
+        <span class="block mb-2">
+          Expertos en <span class="text-primary">reparación de electrodomésticos</span> con más de 15 años de experiencia.
+        </span>
+        <span class="block mb-2">
+          Servicio oficial multimarca en 
+          <span class="text-primary">San Isidro</span>, 
+          <span class="text-primary">Los Cristianos</span>, 
+          <span class="text-primary">Las Américas</span> 
+          y toda la zona sur de Tenerife.
+        </span>
+        <span class="block">
+          Reparación de lavadoras, neveras, hornos, lavavajillas y más.
+        </span>
+      </p>
+    </div>
   </Fragment>
-  <div class="grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
+
+  <div class="grid max-w-6xl grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 px-4 md:px-6">
     {
       services.map(({ title, icon, image, problems, description, schema }) => (
-        <div class="flex flex-col gap-4 border border-default bg-offset p-6 rounded-xl overflow-hidden" itemscope itemtype="https://schema.org/Service">
+        <div class="flex flex-col gap-4 border border-default bg-offset p-4 md:p-6 rounded-xl overflow-hidden" itemscope itemtype="https://schema.org/Service">
           <meta itemprop="serviceType" content="Reparación de Electrodomésticos" />
           <meta itemprop="areaServed" content="Tenerife Sur" />
           <meta itemprop="provider" content="S.S.T.TORRES" />
-          <div class="relative h-48 w-full overflow-hidden rounded-lg">
+          <div class="relative h-40 sm:h-48 w-full overflow-hidden rounded-lg">
             <img
               src={image}
               alt={`Servicio profesional de reparación de ${title} en Tenerife Sur`}
@@ -163,22 +258,22 @@ const services = [
               itemprop="image"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
-              <Icon name={icon} class="absolute bottom-4 right-4 size-12 text-white drop-shadow-lg" />
+              <Icon name={icon} class="absolute bottom-4 right-4 size-8 md:size-12 text-white drop-shadow-lg" />
             </div>
           </div>
-          <div class="flex items-center gap-4">
-            <div class="size-12 rounded-full border-2 border-current p-2">
+          <div class="flex items-center gap-3 md:gap-4">
+            <div class="size-10 md:size-12 rounded-full border-2 border-current p-2">
               <Icon name={icon} class="size-full" />
             </div>
-            <h3 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-500 via-blue-400 to-blue-300" itemprop="name">{title}</h3>
+            <h3 class="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-500 via-blue-400 to-blue-300" itemprop="name">{title}</h3>
           </div>
-          <p class="text-offset" itemprop="description">{description}</p>
+          <p class="text-offset text-sm md:text-base" itemprop="description">{description}</p>
           <div class="mt-4">
-            <h4 class="font-bold mb-2">Problemas más comunes que reparamos:</h4>
-            <ul class="grid grid-cols-2 gap-2 text-sm" itemprop="hasOfferCatalog">
+            <h4 class="font-bold mb-2 text-sm md:text-base">Problemas más comunes que reparamos:</h4>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs md:text-sm" itemprop="hasOfferCatalog">
               {problems.map((problem) => (
                 <li class="flex items-center gap-2" itemprop="itemListElement">
-                  <Icon name="mdi:check-circle" class="size-5 text-primary" />
+                  <Icon name="mdi:check-circle" class="size-4 md:size-5 text-primary flex-shrink-0" />
                   <span>{problem}</span>
                 </li>
               ))}
@@ -190,3 +285,5 @@ const services = [
     }
   </div>
 </ContentSection>
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
