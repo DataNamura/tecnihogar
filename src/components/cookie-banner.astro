@@ -24,28 +24,38 @@
 </div>
 
 <script>
-  const cookieBanner = document.getElementById('cookieBanner');
-  const acceptButton = document.getElementById('acceptCookies');
-  const rejectButton = document.getElementById('rejectCookies');
+  function initCookieBanner() {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptButton = document.getElementById('acceptCookies');
+    const rejectButton = document.getElementById('rejectCookies');
 
-  // Comprobar si ya se ha tomado una decisión
-  if (!localStorage.getItem('cookieConsent')) {
-    cookieBanner.style.display = 'block';
-  } else {
-    cookieBanner.style.display = 'none';
+    if (!cookieBanner || !acceptButton || !rejectButton) {
+      console.error('No se pudieron encontrar los elementos del banner de cookies');
+      return;
+    }
+
+    // Comprobar si ya se ha tomado una decisión
+    if (!localStorage.getItem('cookieConsent')) {
+      cookieBanner.style.display = 'block';
+    } else {
+      cookieBanner.style.display = 'none';
+    }
+
+    acceptButton.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      cookieBanner.style.display = 'none';
+      // Aquí se pueden activar las cookies de análisis y marketing
+    });
+
+    rejectButton.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'rejected');
+      cookieBanner.style.display = 'none';
+      // Aquí se desactivan todas las cookies no esenciales
+    });
   }
 
-  acceptButton.addEventListener('click', () => {
-    localStorage.setItem('cookieConsent', 'accepted');
-    cookieBanner.style.display = 'none';
-    // Aquí se pueden activar las cookies de análisis y marketing
-  });
-
-  rejectButton.addEventListener('click', () => {
-    localStorage.setItem('cookieConsent', 'rejected');
-    cookieBanner.style.display = 'none';
-    // Aquí se desactivan todas las cookies no esenciales
-  });
+  // Ejecutar la inicialización cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', initCookieBanner);
 </script>
 
 <style>
