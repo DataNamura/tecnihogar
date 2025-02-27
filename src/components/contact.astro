@@ -19,9 +19,9 @@ const contactMethods = [
   },
   {
     name: "Email",
-    value: "info@tecnihogar.com",
+    value: "info@reparacionenelectrodomesticos.com",
     icon: "mdi:email",
-    href: "mailto:info@tecnihogar.com",
+    href: "mailto:info@reparacionenelectrodomesticos.com",
     description: "Para consultas y presupuestos"
   },
   {
@@ -67,7 +67,7 @@ const contactMethods = [
 </ContentSection>
 
 <script>
-  const form = document.getElementById('contact-form');
+  const form = document.getElementById('contact-form') as HTMLFormElement;
   
   form?.addEventListener('submit', (e) => {
     e.preventDefault();

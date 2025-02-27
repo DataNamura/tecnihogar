@@ -8,15 +8,13 @@ const features: Array<FeatureItem> = [
     title: "Desplazamiento GRATUITO*",
     description:
       "El desplazamiento es totalmente gratuito si se realiza la reparación. Sin costes adicionales en toda la isla.",
-    icon: "mdi:truck-fast",
-    highlight: true
+    icon: "mdi:truck-fast"
   },
   {
     title: "Revisión Técnica GRATUITA*",
     description:
       "Diagnóstico profesional sin coste cuando se efectúa la reparación del electrodoméstico.",
-    icon: "mdi:wrench",
-    highlight: true
+    icon: "mdi:wrench"
   },
   {
     title: "Servicio Urgente",
@@ -52,9 +50,9 @@ const features: Array<FeatureItem> = [
   </Fragment>
   <div class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {
-      features.map(({ title, description, icon, highlight }) => (
-        <div class={`flex flex-col gap-4 rounded-lg border border-default bg-offset p-6 ${highlight ? 'relative overflow-hidden border-primary' : ''}`}>
-          {highlight && (
+      features.map(({ title, description, icon }) => (
+        <div class="flex flex-col gap-4 rounded-lg border border-default bg-offset p-6">
+          {title.includes('GRATUITO') && (
             <div class="absolute top-0 right-0 bg-primary text-white text-xs px-2 py-1 rounded-bl">
               * Si se realiza la reparación
             </div>
