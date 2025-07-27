@@ -1,0 +1,89 @@
+---
+import "@fontsource-variable/inter";
+import CookieConsent from "~/components/cookie-consent.astro";
+import Navbar from "~/components/navbar.astro";
+import Footer from "~/components/footer.astro";
+import PhoneButton from "~/components/phone-button.astro";
+import WhatsAppButton from "~/components/whatsapp-button.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Reparación de Electrodomésticos en Tenerife ▷ Servicio Técnico",
+  description = "🔧 Servicio Técnico Oficial de Electrodomésticos en Tenerife y Tenerife Sur. Reparamos lavadoras, neveras, hornos. ✅ Servicio urgente 24h en San Isidro, Los Cristianos y Las Américas. ⭐ 15 años de experiencia."
+} = Astro.props;
+---
+
+<html lang="es" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- social media -->
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    
+    <!-- initialize theme -->
+    <script is:inline>
+      const themeSaved = localStorage.getItem("theme");
+
+      if (themeSaved) {
+        document.documentElement.dataset.theme = themeSaved;
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+      }
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.dataset.theme = event.matches
+              ? "dark"
+              : "light";
+          }
+        });
+    </script>
+    
+    <meta name="keywords" content="reparación electrodomésticos Tenerife, servicio técnico electrodomésticos San Isidro, reparación lavadoras Tenerife Sur, reparación neveras Los Cristianos, reparación hornos Las Américas, servicio técnico Balay, servicio técnico Bosch, reparación microondas Tenerife" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="S.S.T.TORRES" />
+    <meta name="geo.region" content="ES-CN" />
+    <meta name="geo.placename" content="San Isidro, Tenerife" />
+    <meta name="geo.position" content="28.079153;-16.563350" />
+    <meta name="ICBM" content="28.079153, -16.563350" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="business.business" />
+    <meta property="og:title" content="Servicio Técnico Electrodomésticos Tenerife | Reparación Electrodomésticos" />
+    <meta property="og:description" content="Reparación de electrodomésticos en Tenerife y Tenerife Sur. Servicio técnico oficial multimarca. Expertos en lavadoras, neveras, hornos y más. Servicio urgente." />
+    <meta property="og:url" content="https://reparacionenelectrodomesticos.com" />
+    <meta property="og:image" content="/equipo.webp" />
+    <meta property="og:site_name" content="Reparación Electrodomésticos Tenerife" />
+    <meta property="business:contact_data:street_address" content="C. la Vera, 10, Local 1 Bajo" />
+    <meta property="business:contact_data:locality" content="San Isidro" />
+    <meta property="business:contact_data:postal_code" content="38611" />
+    <meta property="business:contact_data:country_name" content="España" />
+    <meta property="business:contact_data:phone_number" content="+34922078429" />
+    
+    <slot name="head" />
+  </head>
+  <body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
+    <Navbar />
+    <slot />
+    <CookieConsent />
+    <Footer />
+    <PhoneButton />
+    <WhatsAppButton />
+  </body>
+</html>

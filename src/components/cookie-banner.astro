@@ -1,0 +1,65 @@
+---
+---
+
+<div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">
+        <p>
+          Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación. 
+          Puede aceptar todas las cookies pulsando el botón "Aceptar" o configurarlas o rechazar su uso pulsando el botón "Configurar".
+        </p>
+        <a href="/politica-cookies" class="underline hover:text-blue-300">Más información</a>
+      </div>
+      <div class="flex gap-3">
+        <button id="rejectCookies" class="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded">
+          Rechazar
+        </button>
+        <button id="acceptCookies" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded">
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initCookieBanner() {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptButton = document.getElementById('acceptCookies');
+    const rejectButton = document.getElementById('rejectCookies');
+
+    if (!cookieBanner || !acceptButton || !rejectButton) {
+      console.error('No se pudieron encontrar los elementos del banner de cookies');
+      return;
+    }
+
+    // Comprobar si ya se ha tomado una decisión
+    if (!localStorage.getItem('cookieConsent')) {
+      cookieBanner.style.display = 'block';
+    } else {
+      cookieBanner.style.display = 'none';
+    }
+
+    acceptButton.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      cookieBanner.style.display = 'none';
+      // Aquí se pueden activar las cookies de análisis y marketing
+    });
+
+    rejectButton.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'rejected');
+      cookieBanner.style.display = 'none';
+      // Aquí se desactivan todas las cookies no esenciales
+    });
+  }
+
+  // Ejecutar la inicialización cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', initCookieBanner);
+</script>
+
+<style>
+  #cookieBanner {
+    display: none;
+  }
+</style>

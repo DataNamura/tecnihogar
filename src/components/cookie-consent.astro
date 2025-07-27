@@ -1,0 +1,210 @@
+---
+---
+
+<div id="cookie-consent" class="fixed bottom-0 left-0 right-0 bg-default border-t border-default p-4 shadow-lg transform translate-y-full transition-transform duration-300 z-50">
+  <div class="container mx-auto max-w-6xl">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div class="flex-1">
+        <h3 class="text-lg font-semibold mb-2">🍪 Este sitio web usa cookies</h3>
+        <p class="text-sm text-offset mb-2">
+          Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación.
+        </p>
+        <button id="cookie-settings" class="text-sm text-primary hover:underline">
+          Configurar preferencias
+        </button>
+      </div>
+      <div class="flex gap-3">
+        <button id="reject-cookies" class="px-4 py-2 text-sm border border-current rounded-md hover:text-primary transition-colors">
+          Rechazar
+        </button>
+        <button id="accept-cookies" class="px-4 py-2 text-sm bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de configuración de cookies -->
+<div id="cookie-settings-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+  <div class="bg-default p-6 rounded-lg max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+    <h2 class="text-2xl font-bold mb-4">Configuración de Cookies</h2>
+    
+    <div class="space-y-6">
+      <!-- Cookies técnicas -->
+      <div class="flex items-start gap-4">
+        <div class="flex items-center h-6">
+          <input type="checkbox" id="technical-cookies" checked disabled
+            class="size-4 rounded border-gray-300 text-primary focus:ring-primary disabled:opacity-50">
+        </div>
+        <div>
+          <label for="technical-cookies" class="font-medium">Cookies técnicas (Necesarias)</label>
+          <p class="text-sm text-offset">Son imprescindibles para el correcto funcionamiento del sitio web. Permiten la navegación y el uso de funciones básicas.</p>
+        </div>
+      </div>
+
+      <!-- Cookies analíticas -->
+      <div class="flex items-start gap-4">
+        <div class="flex items-center h-6">
+          <input type="checkbox" id="analytics-cookies"
+            class="size-4 rounded border-gray-300 text-primary focus:ring-primary">
+        </div>
+        <div>
+          <label for="analytics-cookies" class="font-medium">Cookies analíticas</label>
+          <p class="text-sm text-offset">Nos permiten analizar el uso del sitio web para mejorar nuestros servicios. Por ejemplo, nos ayudan a entender qué páginas son las más visitadas.</p>
+        </div>
+      </div>
+
+      <!-- Cookies de personalización -->
+      <div class="flex items-start gap-4">
+        <div class="flex items-center h-6">
+          <input type="checkbox" id="personalization-cookies"
+            class="size-4 rounded border-gray-300 text-primary focus:ring-primary">
+        </div>
+        <div>
+          <label for="personalization-cookies" class="font-medium">Cookies de personalización</label>
+          <p class="text-sm text-offset">Permiten recordar sus preferencias para mejorar su experiencia en futuras visitas.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-end gap-3">
+      <button id="close-settings" class="px-4 py-2 text-sm border border-current rounded-md hover:text-primary transition-colors">
+        Cancelar
+      </button>
+      <button id="save-settings" class="px-4 py-2 text-sm bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">
+        Guardar preferencias
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let cookieConsent = {
+    technical: true, // Siempre necesarias
+    analytics: false,
+    personalization: false
+  };
+
+  // Cargar preferencias guardadas
+  const savedConsent = localStorage.getItem('cookieConsent');
+  if (savedConsent) {
+    cookieConsent = { ...cookieConsent, ...JSON.parse(savedConsent) };
+    // Actualizar checkboxes
+    updateCheckboxes();
+  } else {
+    // Mostrar banner si no hay preferencias guardadas
+    showBanner();
+  }
+
+  // Mostrar banner
+  function showBanner() {
+    const banner = document.getElementById('cookie-consent');
+    if (banner) {
+      setTimeout(() => {
+        banner.classList.remove('translate-y-full');
+      }, 100);
+    }
+  }
+
+  // Ocultar banner
+  function hideBanner() {
+    const banner = document.getElementById('cookie-consent');
+    if (banner) {
+      banner.classList.add('translate-y-full');
+    }
+  }
+
+  // Actualizar checkboxes según preferencias
+  function updateCheckboxes() {
+    const analyticsCheckbox = document.getElementById('analytics-cookies') as HTMLInputElement;
+    const personalizationCheckbox = document.getElementById('personalization-cookies') as HTMLInputElement;
+    
+    if (analyticsCheckbox && personalizationCheckbox) {
+      analyticsCheckbox.checked = cookieConsent.analytics;
+      personalizationCheckbox.checked = cookieConsent.personalization;
+    }
+  }
+
+  // Guardar preferencias
+  function savePreferences() {
+    localStorage.setItem('cookieConsent', JSON.stringify(cookieConsent));
+    hideBanner();
+    hideModal();
+    
+    // Aquí se implementaría la lógica para activar/desactivar las cookies
+    // según las preferencias guardadas
+    if (cookieConsent.analytics) {
+      // Activar Google Analytics u otras herramientas analíticas
+    }
+    if (cookieConsent.personalization) {
+      // Activar cookies de personalización
+    }
+  }
+
+  // Mostrar modal de configuración
+  function showModal() {
+    const modal = document.getElementById('cookie-settings-modal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      updateCheckboxes();
+    }
+  }
+
+  // Ocultar modal de configuración
+  function hideModal() {
+    const modal = document.getElementById('cookie-settings-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+
+  // Event Listeners
+  document.getElementById('accept-cookies')?.addEventListener('click', () => {
+    cookieConsent = {
+      technical: true,
+      analytics: true,
+      personalization: true
+    };
+    savePreferences();
+  });
+
+  document.getElementById('reject-cookies')?.addEventListener('click', () => {
+    cookieConsent = {
+      technical: true,
+      analytics: false,
+      personalization: false
+    };
+    savePreferences();
+  });
+
+  document.getElementById('cookie-settings')?.addEventListener('click', () => {
+    showModal();
+  });
+
+  document.getElementById('close-settings')?.addEventListener('click', () => {
+    hideModal();
+  });
+
+  document.getElementById('save-settings')?.addEventListener('click', () => {
+    const analyticsCheckbox = document.getElementById('analytics-cookies') as HTMLInputElement;
+    const personalizationCheckbox = document.getElementById('personalization-cookies') as HTMLInputElement;
+    
+    cookieConsent = {
+      technical: true,
+      analytics: analyticsCheckbox?.checked || false,
+      personalization: personalizationCheckbox?.checked || false
+    };
+    
+    savePreferences();
+  });
+
+  // Cerrar modal al hacer clic fuera
+  document.getElementById('cookie-settings-modal')?.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+      hideModal();
+    }
+  });
+</script>

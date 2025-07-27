@@ -1,0 +1,50 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+
+const testimonials = [
+  {
+    name: "María González",
+    location: "Madrid",
+    text: "Excelente servicio. Repararon mi lavadora el mismo día y a un precio muy razonable.",
+    rating: 5,
+  },
+  {
+    name: "Carlos Rodríguez",
+    location: "Barcelona",
+    text: "Muy profesionales. El técnico me explicó todo el proceso y me dio consejos para el mantenimiento.",
+    rating: 5,
+  },
+  {
+    name: "Ana Martínez",
+    location: "Valencia",
+    text: "Servicio rápido y eficiente. Mi nevera funciona mejor que nunca.",
+    rating: 5,
+  },
+];
+---
+
+<ContentSection title="Opiniones" id="testimonials">
+  <Fragment slot="lead">
+    Lo que dicen nuestros <span class="text-primary">clientes</span> sobre
+    nuestro <span class="text-primary">servicio</span>
+  </Fragment>
+  <div class="grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-3">
+    {
+      testimonials.map(({ name, location, text, rating }) => (
+        <div class="flex flex-col gap-4 border border-default bg-offset p-6 rounded-xl">
+          <div class="flex gap-1">
+            {Array.from({ length: rating }).map(() => (
+              <Icon name="mdi:star" class="size-6 text-yellow-500" />
+            ))}
+          </div>
+          <p class="text-offset text-sm italic">"{text}"</p>
+          <div class="mt-auto">
+            <p class="font-bold">{name}</p>
+            <p class="text-offset text-sm">{location}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</ContentSection>

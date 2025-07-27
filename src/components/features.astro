@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem } from "~/types";
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Desplazamiento GRATUITO*",
+    description:
+      "El desplazamiento es totalmente gratuito si se realiza la reparación. Sin costes adicionales en toda la isla.",
+    icon: "mdi:truck-fast"
+  },
+  {
+    title: "Revisión Técnica GRATUITA*",
+    description:
+      "Diagnóstico profesional sin coste cuando se efectúa la reparación del electrodoméstico.",
+    icon: "mdi:wrench"
+  },
+  {
+    title: "Servicio Urgente",
+    description:
+      "Respuesta rápida en 24/48h para todas las averías. Atención inmediata para casos urgentes.",
+    icon: "mdi:clock-fast"
+  },
+  {
+    title: "Garantía en Reparaciones",
+    description:
+      "Todas nuestras reparaciones incluyen garantía. Utilizamos repuestos originales de cada marca.",
+    icon: "mdi:shield-check"
+  },
+  {
+    title: "Técnicos Certificados",
+    description:
+      "Equipo de profesionales cualificados y con amplia experiencia en todas las marcas.",
+    icon: "mdi:certificate"
+  },
+  {
+    title: "Precios Competitivos",
+    description:
+      "Tarifas transparentes y competitivas. Presupuesto sin compromiso antes de cada reparación.",
+    icon: "mdi:cash"
+  }
+];
+
+---
+
+<ContentSection title="Ventajas" id="features">
+  <Fragment slot="lead">
+    Servicio técnico de <span class="text-primary">confianza</span> en Tenerife
+  </Fragment>
+  <div class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {
+      features.map(({ title, description, icon }) => (
+        <div class="flex flex-col gap-4 rounded-lg border border-default bg-offset p-6">
+          {title.includes('GRATUITO') && (
+            <div class="absolute top-0 right-0 bg-primary text-white text-xs px-2 py-1 rounded-bl">
+              * Si se realiza la reparación
+            </div>
+          )}
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 items-center justify-center rounded-full border-2 border-current p-2">
+              <Icon name={icon} class="size-full" />
+            </div>
+            <h3 class="text-xl font-bold">{title}</h3>
+          </div>
+          <p class="text-offset text-sm">{description}</p>
+        </div>
+      ))
+    }
+  </div>
+</ContentSection>

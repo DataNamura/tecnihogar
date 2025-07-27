@@ -1,0 +1,124 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+
+const faqs = [
+  {
+    question: "¿Cuánto cuesta el desplazamiento?",
+    answer: "El desplazamiento es totalmente GRATUITO si se realiza la reparación. Solo en caso de que no se proceda con la reparación, se aplicará un cargo mínimo por la visita técnica."
+  },
+  {
+    question: "¿Cuánto tiempo tardan en atender una avería?",
+    answer: "Nos comprometemos a dar respuesta en el mismo día para averías urgentes. Para la mayoría de los casos, podemos resolver el problema en la primera visita."
+  },
+  {
+    question: "¿Ofrecen garantía en las reparaciones?",
+    answer: "Sí, todas nuestras reparaciones incluyen garantía por escrito. La duración depende del tipo de reparación, siendo mínimo 3 meses en piezas y mano de obra."
+  },
+  {
+    question: "¿Trabajan con todas las marcas de electrodomésticos?",
+    answer: "Sí, nuestros técnicos están certificados para trabajar con todas las marcas principales: Balay, Bosch, Siemens, Samsung, LG, Electrolux, AEG, Whirlpool, entre otras."
+  },
+  {
+    question: "¿Utilizan repuestos originales?",
+    answer: "Sí, trabajamos exclusivamente con repuestos originales para garantizar la durabilidad y el correcto funcionamiento de su electrodoméstico."
+  },
+  {
+    question: "¿Qué formas de pago aceptan?",
+    answer: "Aceptamos efectivo, tarjetas de crédito/débito, transferencia bancaria y Bizum para su comodidad."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<ContentSection title="Preguntas Frecuentes" id="faq">
+  <Fragment slot="lead">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+        Dudas Frecuentes sobre Reparación de Electrodomésticos
+      </h2>
+      <p class="text-base md:text-lg">
+        Resolvemos tus dudas sobre nuestro <span class="text-primary">servicio técnico</span> de electrodomésticos en Tenerife Sur
+      </p>
+    </div>
+  </Fragment>
+  
+  <div class="max-w-3xl mx-auto px-4" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="grid gap-4 md:gap-6">
+      {
+        faqs.map((faq, index) => (
+          <div class="w-full" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <details class="group w-full">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 rounded-lg bg-offset p-4 text-left text-base md:text-lg font-semibold text-primary">
+                <span itemprop="name" class="flex-1">{faq.question}</span>
+                <span class="text-primary transition-transform duration-300 group-open:rotate-180">
+                  <Icon name="mdi:chevron-down" class="size-5 md:size-6" />
+                </span>
+              </summary>
+              <div 
+                class="px-4 pb-4 pt-2 text-sm md:text-base text-offset" 
+                itemscope 
+                itemprop="acceptedAnswer" 
+                itemtype="https://schema.org/Answer"
+              >
+                <p itemprop="text" class="leading-relaxed">{faq.answer}</p>
+              </div>
+            </details>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</ContentSection>
+
+<style>
+  details {
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  details > summary {
+    list-style: none;
+  }
+  
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  details:hover {
+    border-color: var(--color-primary);
+  }
+  
+  details[open] {
+    background: var(--color-background);
+  }
+  
+  .text-primary {
+    color: var(--color-primary);
+  }
+  
+  @media (max-width: 640px) {
+    details > summary {
+      padding: 1rem;
+    }
+    
+    details > div {
+      padding: 0.75rem 1rem;
+    }
+  }
+</style>

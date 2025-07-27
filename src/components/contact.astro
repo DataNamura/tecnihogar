@@ -1,0 +1,95 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+
+const contactMethods = [
+  {
+    name: "Teléfono",
+    value: "922 07 84 29",
+    icon: "mdi:phone",
+    href: "tel:922078429",
+    description: "Atención inmediata de Lunes a Domingo"
+  },
+  {
+    name: "WhatsApp",
+    value: "603 40 30 94",
+    icon: "mdi:whatsapp",
+    href: "https://wa.me/34603403094",
+    description: "Respuesta rápida por mensaje"
+  },
+  {
+    name: "Email",
+    value: "info@reparacionenelectrodomesticos.com",
+    icon: "mdi:email",
+    href: "mailto:info@reparacionenelectrodomesticos.com",
+    description: "Para consultas y presupuestos"
+  },
+  {
+    name: "Horario",
+    value: "Lun-Dom: 08:00 - 20:00",
+    icon: "mdi:clock",
+    href: "#",
+    description: "Servicio de urgencias disponible"
+  }
+];
+---
+
+<ContentSection title="Contacto" id="contact">
+  <Fragment slot="lead">
+    Estamos aquí para ayudarte con cualquier <span class="text-primary">reparación</span>
+  </Fragment>
+
+  <div class="mx-auto max-w-6xl px-4 py-8">
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="space-y-8">
+        <div class="grid gap-6 sm:grid-cols-2">
+          {contactMethods.map((method) => (
+            <a
+              href={method.href}
+              class="group flex flex-col gap-4 rounded-lg border border-default bg-offset p-6 transition-all duration-300 hover:border-primary hover:bg-primary/10"
+            >
+              <div class="flex items-center gap-4">
+                <div class="rounded-lg bg-primary/10 p-3 group-hover:bg-primary/20">
+                  <Icon name={method.icon} class="size-6 text-primary" />
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-default">{method.name}</h3>
+                  <p class="text-primary font-medium">{method.value}</p>
+                </div>
+              </div>
+              <p class="text-offset text-sm">{method.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</ContentSection>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Aquí puedes agregar la lógica para enviar el formulario
+    // Por ejemplo, usando fetch para enviar a un endpoint
+    
+    alert('Gracias por contactar con nosotros. Nos pondremos en contacto contigo lo antes posible.');
+    form.reset();
+  });
+</script>
+
+<style>
+  input:focus, 
+  select:focus, 
+  textarea:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-text-offset);
+  }
+</style>

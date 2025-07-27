@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+
+const areas = [
+  { zone: "Tenerife Norte" },
+  { zone: "Tenerife Sur" },
+];
+---
+
+<ContentSection title="Zonas de Cobertura" id="coverage">
+  <Fragment slot="lead">
+    Servicio técnico en <span class="text-primary">Tenerife Norte y Sur</span>
+  </Fragment>
+
+  <div class="max-w-6xl">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      {areas.map(({ zone }) => (
+        <div class="flex flex-col gap-4 border border-default bg-offset p-6 rounded-xl items-center">
+          <div class="size-12 rounded-full border-2 border-current p-2 bg-primary text-white">
+            <Icon name="mdi:map-marker" class="size-8" />
+          </div>
+          <h3 class="text-xl font-bold">{zone}</h3>
+        </div>
+      ))}
+    </div>
+  </div>
+</ContentSection>

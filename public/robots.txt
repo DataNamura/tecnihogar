@@ -1,0 +1,26 @@
+# Reglas globales para todos los robots
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://ssttorres.es/sitemap-index.xml
+
+# Reglas específicas para imágenes
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+
+# Reglas específicas para Google
+User-agent: Googlebot
+Crawl-delay: 1
+
+# Host preferido
+Host: https://ssttorres.es

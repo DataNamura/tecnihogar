@@ -1,0 +1,362 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import { Icon } from "astro-icon/components";
+
+const services = [
+  {
+    title: "Lavadoras",
+    icon: "mdi:washing-machine",
+    image:
+      "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?q=80&w=800&auto=format&fit=crop",
+    problems: [
+      "No centrifuga o centrifuga mal",
+      "No desagua o pierde agua",
+      "Ruidos extraños al centrifugar",
+      "No calienta el agua",
+      "Error en el programa",
+    ],
+    description:
+      "Servicio técnico oficial de lavadoras en Tenerife Sur. Reparamos todas las marcas: Balay, Bosch, Samsung, LG, Siemens. Diagnóstico en 24h, solución garantizada y piezas originales.",
+    schema: {
+      "@type": "Service",
+      name: "Reparación de Lavadoras en Tenerife Sur",
+      areaServed: "Tenerife Sur",
+      category: "Reparación Electrodomésticos",
+    },
+  },
+  {
+    title: "Refrigeradores",
+    icon: "mdi:fridge",
+    image:
+      "https://images.unsplash.com/photo-1536353284924-9220c464e262?q=80&w=800&auto=format&fit=crop",
+    problems: [
+      "No enfría o enfría poco",
+      "Ruido excesivo",
+      "Formación excesiva de hielo",
+      "Alto consumo eléctrico",
+      "Pérdidas de agua",
+    ],
+    description:
+      "Expertos en reparación de neveras y refrigeradores en Tenerife Sur. Servicio urgente 24/48h para averías de temperatura. Trabajamos con todas las marcas principales.",
+    schema: {
+      "@type": "Service",
+      name: "Reparación de Refrigeradores en Tenerife Sur",
+      areaServed: "Tenerife Sur",
+      category: "Reparación Electrodomésticos",
+    },
+  },
+  {
+    title: "Secadoras",
+    icon: "mdi:tumble-dryer",
+    image:
+      "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?q=80&w=800&auto=format&fit=crop",
+    problems: [
+      "No calienta o seca mal",
+      "Tambor no gira",
+      "Ruidos anormales",
+      "Ciclo incompleto",
+      "Problemas eléctricos",
+    ],
+    description:
+      "Reparación profesional de secadoras en Tenerife Sur. Servicio técnico multimarca con experiencia en Bosch, Siemens, Balay y más. Solución rápida y garantizada.",
+    schema: {
+      "@type": "Service",
+      name: "Reparación de Secadoras en Tenerife Sur",
+      areaServed: "Tenerife Sur",
+      category: "Reparación Electrodomésticos",
+    },
+  },
+  {
+    title: "Lavavajillas",
+    icon: "mdi:dishwasher",
+    image:
+      "https://images.unsplash.com/photo-1581622558663-b2e33377dfb2?q=80&w=800&auto=format&fit=crop",
+    problems: [
+      "No desagua correctamente",
+      "Mala limpieza",
+      "Fugas de agua",
+      "No enciende",
+      "Ruidos extraños",
+    ],
+    description:
+      "Servicio técnico especializado en lavavajillas en Tenerife Sur. Reparación de todas las marcas con garantía. Diagnóstico mismo día y presupuesto sin compromiso.",
+    schema: {
+      "@type": "Service",
+      name: "Reparación de Lavavajillas en Tenerife Sur",
+      areaServed: "Tenerife Sur",
+      category: "Reparación Electrodomésticos",
+    },
+  },
+  {
+    title: "Hornos",
+    icon: "mdi:stove",
+    image: "/horno.jpg",
+    problems: [
+      "No calienta o calienta mal",
+      "Temperatura irregular",
+      "Problemas de puerta",
+      "Fallo en grill/resistencias",
+      "Panel de control",
+    ],
+    description:
+      "Especialistas en reparación de hornos en Tenerife Sur. Servicio técnico para hornos eléctricos y de gas. Reparamos averías complejas en todas las marcas.",
+    schema: {
+      "@type": "Service",
+      name: "Reparación de Hornos en Tenerife Sur",
+      areaServed: "Tenerife Sur",
+      category: "Reparación Electrodomésticos",
+    },
+  },
+  {
+    title: "Placas Electrónicas",
+    icon: "mdi:chip",
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
+    problems: [
+      "Fallos en el display",
+      "Errores de programación",
+      "Problemas de encendido",
+      "Cortocircuitos",
+      "Componentes dañados",
+    ],
+    description:
+      "Especialistas en reparación de placas electrónicas de electrodomésticos. Contamos con el equipo y conocimiento necesario para diagnosticar y reparar averías complejas en circuitos y módulos electrónicos.",
+    schema: {
+      "@type": "Service",
+      name: "Reparación de Placas Electrónicas en Tenerife Sur",
+      areaServed: "Tenerife Sur",
+      category: "Reparación Electrodomésticos",
+    },
+  },
+  {
+    title: "Microondas",
+    icon: "mdi:microwave",
+    image:
+      "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?q=80&w=800&auto=format&fit=crop",
+    problems: [
+      "No calienta",
+      "Plato no gira",
+      "Ruidos anormales",
+      "Chispas internas",
+      "Panel no responde",
+    ],
+    description:
+      "Reparación profesional de microondas en Tenerife Sur. Servicio a domicilio rápido y eficiente. Expertos en todas las marcas y modelos. Garantía en reparaciones.",
+    schema: {
+      "@type": "Service",
+      name: "Reparación de Microondas en Tenerife Sur",
+      areaServed: "Tenerife Sur",
+      category: "Reparación Electrodomésticos",
+    },
+  },
+  {
+    title: "Calentadores de Gas",
+    icon: "mdi:water-boiler",
+    image:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop",
+    problems: [
+      "No enciende o se apaga",
+      "Agua fría o tibia",
+      "Fugas de gas o agua",
+      "Ruidos anormales",
+      "Problemas de presión",
+    ],
+    description:
+      "Servicio técnico especializado en calentadores de gas en Tenerife Sur. Reparación y mantenimiento de todas las marcas: Junkers, Bosch, Vaillant. Servicio urgente y seguro.",
+    schema: {
+      "@type": "Service",
+      name: "Reparación de Calentadores de Gas en Tenerife Sur",
+      areaServed: "Tenerife Sur",
+      category: "Reparación Electrodomésticos",
+    },
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "S.S.T.TORRES - Servicio Técnico de Electrodomésticos",
+  description:
+    "Servicio técnico oficial de electrodomésticos en Tenerife Sur. Especialistas en reparación de lavadoras, neveras, hornos y electrodomésticos de todas las marcas. Servicio urgente en San Isidro, Los Cristianos y Las Américas.",
+  image: ["/equipo.webp"],
+  "@id": "https://reparacionenelectrodomesticos.com",
+  url: "https://reparacionenelectrodomesticos.com",
+  telephone: "922078429",
+  priceRange: "€€",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "C. la Vera, 10, Local 1 Bajo",
+    addressLocality: "San Isidro",
+    postalCode: "38611",
+    addressRegion: "Santa Cruz de Tenerife",
+    addressCountry: "ES",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 28.079153,
+    longitude: -16.56335,
+  },
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: 28.079153,
+      longitude: -16.56335,
+    },
+    geoRadius: "50000",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "09:00",
+    closes: "17:00",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Servicios de Reparación de Electrodomésticos",
+    itemListElement: services.map((service) => ({
+      "@type": "OfferCatalog",
+      name: service.title,
+      description: service.description,
+    })),
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "150",
+  },
+  review: {
+    "@type": "Review",
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+    },
+    author: {
+      "@type": "Person",
+      name: "Cliente Satisfecho",
+    },
+    reviewBody: "Excelente servicio técnico. Rápidos y profesionales.",
+  },
+  potentialAction: {
+    "@type": "OrderAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "tel:922078429",
+      inLanguage: "es",
+      actionPlatform: [
+        "http://schema.org/MobileWebPlatform",
+        "http://schema.org/DesktopWebPlatform",
+      ],
+    },
+  },
+};
+---
+
+<ContentSection title="Nuestros Servicios" id="services">
+  <Fragment slot="lead">
+    <div class="mx-auto max-w-4xl px-4 text-center">
+      <h2 class="mb-4 font-bold text-2xl md:text-3xl lg:text-4xl">
+        Servicio Técnico Oficial de Electrodomésticos en Tenerife
+      </h2>
+      <p class="mt-4 space-y-2 text-base md:text-lg">
+        <span class="mb-2 block">
+          Expertos en <span class="text-primary"
+            >reparación de electrodomésticos</span
+          > con más de 15 años de experiencia.
+        </span>
+        <span class="mb-2 block">
+          Servicio oficial multimarca en
+          <span class="text-primary">San Isidro</span>,
+          <span class="text-primary">Los Cristianos</span>,
+          <span class="text-primary">Las Américas</span>
+          y toda la zona sur de Tenerife.
+        </span>
+        <span class="block">
+          Reparación de lavadoras, neveras, hornos, lavavajillas y más.
+        </span>
+      </p>
+    </div>
+  </Fragment>
+
+  <div
+    class="grid max-w-6xl grid-cols-1 gap-4 px-4 md:grid-cols-2 md:gap-6 md:px-6 lg:gap-8"
+  >
+    {
+      services.map(({ title, icon, image, problems, description, schema }) => (
+        <div
+          class="flex flex-col gap-4 overflow-hidden rounded-xl border border-default bg-offset p-4 md:p-6"
+          itemscope
+          itemtype="https://schema.org/Service"
+        >
+          <meta
+            itemprop="serviceType"
+            content="Reparación de Electrodomésticos"
+          />
+          <meta itemprop="areaServed" content="Tenerife Sur" />
+          <meta itemprop="provider" content="S.S.T.TORRES" />
+          <div class="relative h-40 w-full overflow-hidden rounded-lg sm:h-48">
+            <img
+              src={image}
+              alt={`Servicio profesional de reparación de ${title} en Tenerife Sur`}
+              class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+              itemprop="image"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+              <Icon
+                name={icon}
+                class="absolute bottom-4 right-4 size-8 text-white drop-shadow-lg md:size-12"
+              />
+            </div>
+          </div>
+          <div class="flex items-center gap-3 md:gap-4">
+            <div class="size-10 rounded-full border-2 border-current p-2 md:size-12">
+              <Icon name={icon} class="size-full" />
+            </div>
+            <h3
+              class="bg-gradient-to-br from-blue-500 via-blue-400 to-blue-300 bg-clip-text font-bold text-transparent text-xl md:text-2xl"
+              itemprop="name"
+            >
+              {title}
+            </h3>
+          </div>
+          <p class="text-offset text-sm md:text-base" itemprop="description">
+            {description}
+          </p>
+          <div class="mt-4">
+            <h4 class="mb-2 font-bold text-sm md:text-base">
+              Problemas más comunes que reparamos:
+            </h4>
+            <ul
+              class="grid grid-cols-1 gap-2 text-xs sm:grid-cols-2 md:text-sm"
+              itemprop="hasOfferCatalog"
+            >
+              {problems.map((problem) => (
+                <li class="flex items-center gap-2" itemprop="itemListElement">
+                  <Icon
+                    name="mdi:check-circle"
+                    class="size-4 flex-shrink-0 text-primary md:size-5"
+                  />
+                  <span>{problem}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <script
+            type="application/ld+json"
+            set:html={JSON.stringify(schema)}
+          />
+        </div>
+      ))
+    }
+  </div>
+</ContentSection>
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />

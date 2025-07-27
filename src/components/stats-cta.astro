@@ -1,0 +1,46 @@
+---
+import ContentSection from "~/components/content-section.astro";
+---
+
+<ContentSection id="stats-cta">
+  <div class="w-full">
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      <!-- Años de Experiencia -->
+      <div class="text-center">
+        <div class="text-4xl font-bold text-primary mb-2">15+</div>
+        <div class="text-lg">Años de Experiencia</div>
+      </div>
+      <!-- Reparaciones Exitosas -->
+      <div class="text-center">
+        <div class="text-4xl font-bold text-primary mb-2">5000+</div>
+        <div class="text-lg">Reparaciones Exitosas</div>
+      </div>
+      <!-- Clientes Satisfechos -->
+      <div class="text-center">
+        <div class="text-4xl font-bold text-primary mb-2">98%</div>
+        <div class="text-lg">Clientes Satisfechos</div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-primary/10 rounded-lg p-8 text-center">
+      <h3 class="text-2xl font-bold mb-4">¿Necesitas reparar tu electrodoméstico?</h3>
+      <p class="mb-6">Contacta con nuestro equipo de expertos para una solución rápida y profesional</p>
+      <div class="flex justify-center gap-4">
+        <a
+          href="tel:922078429"
+          class="flex items-center justify-center gap-3 bg-primary px-6 py-3 text-white rounded-lg hover:bg-primary/80 transition-colors"
+        >
+          <span>922 07 84 29</span>
+        </a>
+        <a
+          href="https://wa.me/603403094"
+          class="flex items-center justify-center gap-3 border-2 border-primary px-6 py-3 text-primary rounded-lg hover:bg-primary/10 transition-colors"
+        >
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</ContentSection>

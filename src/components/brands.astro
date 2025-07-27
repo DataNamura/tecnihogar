@@ -1,0 +1,118 @@
+---
+import ContentSection from "~/components/content-section.astro";
+
+const brands = [
+  { name: "Balay", image: "/balay.png" },
+  { name: "Bosch", image: "/bosch.png" },
+  { name: "Electrolux", image: "/electrolux.png" },
+  { name: "Junkers", image: "/junkers.png" },
+  { name: "LG", image: "/lg.png" },
+  { name: "Philips", image: "/philips.png" },
+  { name: "Samsung", image: "/samsung.png" },
+  { name: "Siemens", image: "/siemens.png" },
+  { name: "Teka", image: "/teka.png" }
+];
+
+const allBrands = [
+  "Balay", "Bosch", "Siemens", "Teka", "Otsein", "Whirlpool", 
+  "Samsung", "LG", "Zanussi", "Electrolux", "AEG", "Junkers", 
+  "Fagor", "Candy", "Indesit", "Beko"
+];
+---
+
+<ContentSection title="Marcas" id="brands">
+  <Fragment slot="lead">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Servicio Técnico Oficial Multimarca</h2>
+      <p class="text-lg mb-6">
+        Especialistas en <span class="text-primary">reparación de electrodomésticos</span> de todas las marcas principales
+      </p>
+      <div class="text-offset mb-8">
+        <p class="mb-4">
+          Nuestro equipo técnico está certificado y especializado en la reparación de electrodomésticos de las principales marcas del mercado:
+          {allBrands.join(", ")}.
+        </p>
+        <p class="mb-4">
+          Reparamos todo tipo de electrodomésticos: lavadoras, secadoras, lavavajillas, hornos, vitrocerámicas, frigoríficos, congeladores, campanas y más.
+          Utilizamos repuestos originales y ofrecemos garantía en todas nuestras reparaciones.
+        </p>
+        <p>
+          Servicio técnico autorizado para marcas premium como Balay, Bosch, Siemens, Teka y otras marcas líderes en el sector de electrodomésticos.
+          Experiencia demostrada en reparaciones de alta complejidad y actualizaciones de sistemas.
+        </p>
+      </div>
+    </div>
+  </Fragment>
+
+  <div class="marquee">
+    <div class="marquee-content">
+      {brands.map(({ name, image }) => (
+        <div class="brand">
+          <img src={image} alt={name} class="h-12 grayscale transition-all duration-500 hover:grayscale-0" />
+        </div>
+      ))}
+      {brands.map(({ name, image }) => (
+        <div class="brand">
+          <img src={image} alt={name} class="h-12 grayscale transition-all duration-500 hover:grayscale-0" />
+        </div>
+      ))}
+    </div>
+  </div>
+</ContentSection>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .marquee-content {
+    display: flex;
+    gap: 40px;
+    animation: scroll 10s linear infinite;
+  }
+  
+  .brand {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Estilos responsivos para las imágenes */
+  .brand img {
+    height: 50px; /* Tamaño base */
+    transition: all 0.3s ease;
+  }
+
+  /* Tamaños adaptables */
+  @media (min-width: 640px) {
+    .brand img {
+      height: 60px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .brand img {
+      height: 70px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .brand img {
+      height: 80px;
+    }
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>

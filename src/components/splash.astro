@@ -1,0 +1,73 @@
+---
+// archivo: src/components/splash.astro
+import { Icon } from "astro-icon/components";
+import Starfield from "~/components/starfield.astro";
+
+const widths = [450, 800];
+const sizes = "(min-width: 640px) 42vw, 67vw";
+---
+
+<section class="relative h-full bg-black">
+  <Starfield />
+  
+  <!-- Video de fondo -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <video 
+      src="/lavadora.mp4" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      class="absolute w-full h-full object-cover opacity-20"
+      poster="/lavadora-poster.jpg"
+    ></video>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/90"></div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 flex flex-col items-center justify-center min-h-full px-4 py-16 sm:px-8 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="gradient-text font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.1] mb-8">
+        Reparación de<br class="hidden sm:block" /> Electrodomésticos<br class="hidden sm:block" /> en Tenerife
+      </h2>
+      
+      <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-12">
+        Servicio técnico especializado en todas las marcas y tipos de electrodomésticos. ¡Confía en los expertos para una reparación rápida y profesional!
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a 
+          href="#contact" 
+          class="flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 text-lg font-semibold text-white hover:bg-secondary transition-colors duration-200 w-full sm:w-auto min-w-[200px]"
+        >
+          <Icon name="mdi:tools" class="size-5" />
+          Solicitar Servicio
+        </a>
+        <a 
+          href="tel:922078429" 
+          class="flex items-center justify-center gap-2 rounded-xl border-2 border-white px-6 py-4 text-lg font-semibold text-white hover:bg-white hover:text-black transition-colors duration-200 w-full sm:w-auto min-w-[200px]"
+        >
+          <Icon name="mdi:phone" class="size-5" />
+          Llamar Ahora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+    background-size: 200%;
+    animation: shine 8s linear infinite;
+  }
+
+  @keyframes shine {
+    from {
+      background-position: 200% center;
+    }
+    to {
+      background-position: -200% center;
+    }
+  }
+</style>

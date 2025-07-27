@@ -1,0 +1,87 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import { Icon } from "astro-icon/components";
+
+const stats = [
+  { value: "15+", label: "Años de Experiencia", icon: "mdi:calendar-check" },
+  { value: "5000+", label: "Reparaciones Exitosas", icon: "mdi:tools" },
+  { value: "98%", label: "Clientes Satisfechos", icon: "mdi:star" }
+];
+
+const phoneNumber = "603403094";
+---
+
+<ContentSection title="Servicio Técnico de Electrodomésticos en Tenerife" id="about">
+  <Fragment slot="lead">
+    En <span class="text-primary">S.S.T.TORRES</span>, somos especialistas en
+    reparación de electrodomésticos en Tenerife Sur. Servicio técnico oficial multimarca:
+    Balay, Bosch, Siemens, Samsung, LG y más.
+  </Fragment>
+
+  <div class="mt-8 flex justify-center">
+    <img 
+      src="/equipo.webp" 
+      alt="Equipo de técnicos especializados de S.S.T.TORRES en Tenerife" 
+      class="rounded-lg shadow-lg max-w-full md:max-w-3xl" 
+      width="800"
+      height="450"
+    />
+  </div>
+
+  <div class="max-w-3xl mx-auto text-center mb-16">
+    <p class="text-lg text-offset mb-6">
+      Servicio técnico autorizado para la reparación de electrodomésticos en Tenerife. 
+      Especialistas en reparación de lavadoras, secadoras, lavavajillas, hornos, vitrocerámicas, 
+      neveras y congeladores. Atendemos averías en San Isidro, Granadilla, Los Cristianos, 
+      Las Américas, y toda la zona sur de Tenerife.
+    </p>
+    <p class="text-lg text-offset">
+      Como servicio técnico oficial de las principales marcas, garantizamos reparaciones profesionales con garantía y repuestos originales. Nuestro compromiso con la excelencia nos ha convertido en el referente en reparación de electrodomésticos en toda la isla.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-16 max-w-4xl mx-auto px-4">
+    {stats.map(({ value, label, icon }) => (
+      <div class="flex flex-col items-center bg-gradient-to-b from-gray-700 to-gray-800 p-6 rounded-xl shadow-lg transform transition-transform hover:scale-105">
+        <Icon name={icon} class="size-16 text-primary mb-3" />
+        <p class="text-4xl font-extrabold text-white mb-2">{value}</p>
+        <p class="text-sm text-gray-300 uppercase tracking-wide">{label}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="mt-16 max-w-3xl mx-auto text-center px-4">
+    <p class="text-lg text-offset italic mb-16">
+      "Nuestro compromiso es ofrecer un servicio de calidad, rápido y eficiente en toda la isla de Tenerife. Confíe en los profesionales de S.S.T.TORRES para mantener sus electrodomésticos funcionando perfectamente."
+    </p>
+
+    <div class="bg-gradient-to-r from-blue-600 to-blue-400 p-8 md:p-10 rounded-2xl shadow-xl">
+      <h4 class="text-2xl md:text-3xl font-bold text-white mb-4">¿Necesitas reparar un electrodoméstico?</h4>
+      <p class="text-white/90 mb-8 text-lg">Contacta con nuestros técnicos especializados y obtén un diagnóstico profesional</p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a
+          href={`https://wa.me/34${phoneNumber}`}
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] transition-colors text-white px-8 py-4 rounded-xl font-semibold text-lg w-full sm:w-auto justify-center"
+        >
+          <Icon name="mdi:whatsapp" class="size-6" />
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</ContentSection>
+
+<style>
+  .text-primary {
+    color: #3b82f6;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700;
+  }
+  .text-offset {
+    color: #9ca3af;
+  }
+</style>

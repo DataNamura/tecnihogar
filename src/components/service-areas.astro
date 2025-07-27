@@ -1,0 +1,74 @@
+---
+import ContentSection from "~/components/content-section.astro";
+
+const areas = {
+  "Tenerife Sur": [
+    "San Isidro",
+    "El Médano",
+    "Los Cristianos",
+    "Las Américas",
+    "Costa Adeje",
+    "Los Gigantes",
+    "Guaza",
+    "Las Galletas",
+    "Costa del Silencio",
+    "Palm-Mar",
+    "Las Chafiras",
+    "Golf del Sur",
+    "Amarilla Golf",
+    "Guía de Isora",
+    "Playa San Juan",
+    "Alcalá"
+  ],
+  "Tenerife Norte": [
+    "Santa Cruz",
+    "La Laguna",
+    "Puerto de la Cruz",
+    "La Orotava",
+    "Los Realejos",
+    "Tacoronte",
+    "El Sauzal",
+    "La Matanza",
+    "La Victoria",
+    "Santa Úrsula"
+  ],
+  "Zona Metropolitana": [
+    "Santa Cruz de Tenerife",
+    "San Cristóbal de La Laguna",
+    "Tegueste",
+    "El Rosario",
+    "Candelaria",
+    "Güímar",
+    "Arafo",
+    "Bajamar",
+    "La Punta",
+    "Radazul",
+    "Tabaiba"
+  ]
+};
+---
+
+<ContentSection title="Servicio Técnico de Electrodomésticos en Tenerife" id="service-areas">
+  <Fragment slot="lead">
+    Reparación de electrodomésticos a domicilio en <span class="text-primary">toda la isla</span>. 
+    Servicio urgente en <span class="text-primary">Tenerife Sur</span> y zona metropolitana.
+    Técnicos especializados en todas las marcas.
+  </Fragment>
+  <div class="grid gap-8 md:grid-cols-3">
+    {
+      Object.entries(areas).map(([region, cities]) => (
+        <div class="flex flex-col gap-4">
+          <h3 class="text-2xl font-bold text-primary">{region}</h3>
+          <ul class="list-inside space-y-2">
+            {cities.map((city) => (
+              <li class="flex items-center space-x-2">
+                <span class="text-primary">•</span>
+                <span>{city}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</ContentSection>

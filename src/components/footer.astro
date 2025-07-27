@@ -1,0 +1,100 @@
+---
+import { Icon } from "astro-icon/components";
+import type { FooterLink } from "~/types";
+
+const links: Array<FooterLink> = [
+  {
+    url: "#services",
+    description: "Servicios",
+    icon: "mdi:tools",
+  },
+  {
+    url: "#contact",
+    description: "Contacto",
+    icon: "mdi:phone",
+  },
+  {
+    url: "tel:922078429",
+    description: "Llamar",
+    icon: "mdi:phone-dial",
+  },
+];
+
+const legalLinks = [
+  {
+    url: "/aviso-legal",
+    text: "Aviso Legal"
+  },
+  {
+    url: "/terminos-condiciones",
+    text: "Términos y Condiciones"
+  },
+  {
+    url: "/politica-cookies",
+    text: "Política de Cookies"
+  }
+];
+---
+
+<footer id="contact" class="relative bg-offset">
+  <div class="mx-auto max-w-7xl px-8 py-16">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div>
+        <h3 class="gradient-text text-2xl font-bold mb-4">S.S.T.TORRES</h3>
+        <p class="text-offset mb-4">
+          Servicio técnico especializado en reparación de electrodomésticos en Tenerife y Tenerife Sur.
+          Más de 15 años de experiencia ofreciendo soluciones profesionales.
+        </p>
+      </div>
+      
+      <div>
+        <h4 class="gradient-text text-xl font-bold mb-4">Horario y Ubicación</h4>
+        <ul class="space-y-2">
+          <li class="text-offset">Lunes a Domingo: 9:00 - 17:00</li>
+          <li class="text-offset">C. la Vera, 10, Local 1 Bajo</li>
+          <li class="text-offset">38611 San Isidro</li>
+          <li class="text-offset">Santa Cruz de Tenerife</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="gradient-text text-xl font-bold mb-4">Contacto</h4>
+        <ul class="flex gap-4">
+          {
+            links.map((link) => (
+              <li>
+                <a
+                  class="flex size-12 items-center justify-center rounded-full border-2 border-current p-3 hover:text-primary"
+                  href={link.url}
+                >
+                  <span class="sr-only">{link.description}</span>
+                  <Icon class="size-full" name={link.icon} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-4 text-offset">
+          Teléfono: <a href="tel:922078429" class="hover:text-primary">922 07 84 29</a>
+        </p>
+        <p class="mt-2 text-offset">
+          Email: <a href="mailto:tec.electrodomesticostenerife@outlook.es" class="hover:text-primary">tec.electrodomesticostenerife@outlook.es</a>
+        </p>
+        <p class="mt-2 text-offset">
+          Servicio técnico oficial de las principales marcas
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-8 border-t border-default pt-8 text-center text-offset">
+      <p>&copy; {new Date().getFullYear()} S.S.T.TORRES · Servicio Técnico de Electrodomésticos en Tenerife</p>
+      <div class="mt-4 flex justify-center gap-4 text-sm">
+        {
+          legalLinks.map((link) => (
+            <a href={link.url} class="hover:text-primary">{link.text}</a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</footer>

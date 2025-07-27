@@ -1,0 +1,126 @@
+---
+import "@fontsource-variable/inter";
+import Header from "~/components/header.astro";
+import Navbar from "~/components/navbar.astro";
+import Footer from "~/components/footer.astro";
+import WhatsAppButton from "~/components/whatsapp-button.astro";
+import "~/styles/index.css";
+
+const { generator, site } = Astro;
+const description = "Términos y Condiciones de S.S.T.TORRES - Servicio Técnico de Electrodomésticos en Tenerife";
+---
+
+<!doctype html>
+<html lang="es" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={generator} />
+    <meta name="description" content={description} />
+
+    <title>Términos y Condiciones | S.S.T.TORRES - Servicio Técnico de Electrodomésticos en Tenerife</title>
+  </head>
+  <body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
+    <Header />
+    <Navbar />
+    
+    <div class="space-y-24 px-8 py-32">
+      <div class="mx-auto max-w-4xl space-y-24">
+        <div class="flex flex-col items-center gap-8">
+          <h1 class="text-center font-extrabold text-4xl md:text-5xl tracking-tight gradient-text">
+            Términos y Condiciones
+          </h1>
+        </div>
+
+        <div class="space-y-8 text-justify">
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">1. Introducción</h2>
+            <p class="mb-4">Estos términos y condiciones regulan el uso del sitio web ssttorres.es y los servicios de reparación y mantenimiento de electrodomésticos proporcionados por S.S.T.TORRES en Tenerife. Al acceder y utilizar nuestro sitio web o contratar nuestros servicios, usted acepta estos términos y condiciones en su totalidad.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">2. Servicios</h2>
+            <p class="mb-4">S.S.T.TORRES ofrece servicios profesionales de reparación y mantenimiento de electrodomésticos en toda la isla de Tenerife. Nuestros servicios incluyen, pero no se limitan a:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Diagnóstico y reparación de averías</li>
+              <li>Mantenimiento preventivo</li>
+              <li>Instalación y puesta en marcha</li>
+              <li>Asesoramiento técnico</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">3. Presupuestos y Tarifas</h2>
+            <p class="mb-4">Los presupuestos se proporcionarán sin compromiso tras la evaluación inicial del electrodoméstico. Las tarifas incluyen:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Desplazamiento dentro de las zonas de servicio</li>
+              <li>Diagnóstico de la avería</li>
+              <li>Mano de obra por tiempo de reparación</li>
+              <li>Coste de piezas de repuesto (si son necesarias)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">4. Garantías</h2>
+            <p class="mb-4">Todas nuestras reparaciones incluyen garantía por escrito que cubre:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>3 meses mínimo en piezas y mano de obra</li>
+              <li>Servicio post-reparación</li>
+              <li>Atención prioritaria en caso de incidencias</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">5. Obligaciones del Cliente</h2>
+            <p class="mb-4">El cliente se compromete a:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Proporcionar información precisa sobre la avería</li>
+              <li>Permitir el acceso al electrodoméstico</li>
+              <li>Aceptar el presupuesto antes de la reparación</li>
+              <li>Realizar el pago según lo acordado</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">6. Cancelaciones</h2>
+            <p class="mb-4">Las citas pueden cancelarse o reprogramarse con un mínimo de 24 horas de antelación sin cargo adicional. Las cancelaciones con menos tiempo pueden estar sujetas a gastos de gestión.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">7. Formas de Pago</h2>
+            <p class="mb-4">Aceptamos las siguientes formas de pago:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Efectivo</li>
+              <li>Tarjetas de crédito/débito</li>
+              <li>Transferencia bancaria</li>
+              <li>Bizum</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">8. Transporte y Desplazamiento</h2>
+            <p class="mb-4">Nuestra política de transporte es la siguiente:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>El transporte es totalmente gratuito cuando se realiza la reparación del electrodoméstico</li>
+              <li>En caso de que no se proceda con la reparación, se cobrará el desplazamiento según la tarifa vigente</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">9. Protección de Datos</h2>
+            <p class="mb-4">La información personal proporcionada por los clientes será tratada de acuerdo con nuestra política de privacidad y la normativa vigente de protección de datos (RGPD).</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">10. Modificaciones</h2>
+            <p class="mb-4">S.S.T.TORRES se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Los cambios entrarán en vigor desde su publicación en el sitio web.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <Footer />
+    <WhatsAppButton />
+  </body>
+</html>

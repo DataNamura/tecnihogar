@@ -1,0 +1,110 @@
+---
+import "@fontsource-variable/inter";
+import Header from "~/components/header.astro";
+import Navbar from "~/components/navbar.astro";
+import Footer from "~/components/footer.astro";
+import WhatsAppButton from "~/components/whatsapp-button.astro";
+import "~/styles/index.css";
+
+const { generator, site } = Astro;
+const description = "Aviso Legal de S.S.T.TORRES - Servicio Técnico de Electrodomésticos en Tenerife";
+---
+
+<!doctype html>
+<html lang="es" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={generator} />
+    <meta name="description" content={description} />
+
+    <title>Aviso Legal | S.S.T.TORRES - Servicio Técnico de Electrodomésticos en Tenerife</title>
+  </head>
+  <body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
+    <Header />
+    <Navbar />
+    
+    <div class="space-y-24 px-8 py-32">
+      <div class="mx-auto max-w-4xl space-y-24">
+        <div class="flex flex-col items-center gap-8">
+          <h1 class="text-center font-extrabold text-4xl md:text-5xl tracking-tight gradient-text">
+            Aviso Legal
+          </h1>
+        </div>
+
+        <div class="space-y-8 text-justify">
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">Identificación</h2>
+            <p class="mb-4">
+              En cumplimiento con el deber de información recogido en artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, a continuación se reflejan los siguientes datos:
+            </p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Razón social: Orlando Torres Martinez/S.S.T.TORRES</li>
+              <li>NIF: 49519348A</li>
+              <li>Domicilio: C. la Vera, 10, Local 1 Bajo, 38611 San Isidro, Santa Cruz de Tenerife</li>
+              <li>Teléfono: 603 40 30 94</li>
+              <li>Correo electrónico: tec.electrodomesticostenerife@outlook.es</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">Finalidad</h2>
+            <p class="mb-4">
+              S.S.T.TORRES tiene como actividad principal la reparación y mantenimiento de electrodomésticos. A través de este sitio web se facilita a los usuarios información sobre nuestros servicios.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">Política de Privacidad</h2>
+            <p class="mb-4">
+              En cumplimiento de lo dispuesto en la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales, le informamos que los datos personales que nos facilite a través de los formularios de esta web o mediante mensajes de correo electrónico serán incorporados a nuestros ficheros.
+            </p>
+            <p class="mb-4">
+              La finalidad de la recogida y tratamiento de sus datos es prestarle los servicios que nos solicite, así como mantenerle informado sobre nuestros servicios y novedades.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">Condiciones de Uso</h2>
+            <p class="mb-4">
+              El usuario se compromete a hacer un uso adecuado de los contenidos y servicios que S.S.T.TORRES ofrece a través de su web y con carácter enunciativo pero no limitativo, a no emplearlos para:
+            </p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Incurrir en actividades ilícitas, ilegales o contrarias a la buena fe y al orden público.</li>
+              <li>Difundir contenidos o propaganda de carácter racista, xenófobo, pornográfico-ilegal, de apología del terrorismo o atentatorio contra los derechos humanos.</li>
+              <li>Provocar daños en los sistemas físicos y lógicos de S.S.T.TORRES, de sus proveedores o de terceras personas.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">Propiedad Intelectual e Industrial</h2>
+            <p class="mb-4">
+              Todos los contenidos del sitio web, entendiendo por estos a título meramente enunciativo los textos, fotografías, gráficos, imágenes, iconos, tecnología, software, links y demás contenidos audiovisuales o sonoros, así como su diseño gráfico y códigos fuente, son propiedad intelectual de S.S.T.TORRES o de terceros, sin que puedan entenderse cedidos al usuario ninguno de los derechos de explotación reconocidos por la normativa vigente en materia de propiedad intelectual.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">Legislación Aplicable</h2>
+            <p class="mb-4">
+              Las presentes Condiciones se regirán por la legislación española vigente.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">Contacto</h2>
+            <p class="mb-4">Para cualquier consulta relacionada con este Aviso Legal, puede contactarnos a través de:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Teléfono: 603 40 30 94</li>
+              <li>Email: tec.electrodomesticostenerife@outlook.es</li>
+              <li>Dirección: C. la Vera, 10, Local 1 Bajo, 38611 San Isidro, Santa Cruz de Tenerife</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <Footer />
+    <WhatsAppButton />
+  </body>
+</html>
